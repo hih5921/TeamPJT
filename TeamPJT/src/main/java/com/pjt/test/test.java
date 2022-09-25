@@ -10,7 +10,7 @@ public class test {
 	@RequestMapping("/index")
 	public String test() {
 		System.out.println("실행");
-		System.out.println("test");
+		
 		return "pjt/index";
 	}
 }
