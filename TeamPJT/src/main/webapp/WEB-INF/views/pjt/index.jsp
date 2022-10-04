@@ -12,12 +12,12 @@
                 <div class="col-lg-5">
                     <h1 class="font-weight-light">전체 게시물 조회수 top</h1>
                     <p>조회수 top 게시물 본문 내용</p>
-                    <a class="btn btn-primary" href="#!">Call to Action!</a>
+                    <a class="btn btn-primary" href="#!">더보기</a>
                 </div>
             </div>
             <!-- Call to Action-->
             <div class="card text-white bg-secondary my-5 py-4 text-center">
-                <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p></div>
+                <div class="card-body"><p class="text-white m-0">들어갈 내용 미정 (아마 공지류의 내용이 들어갈 예정)</p></div>
             </div>
             <!-- Content Row-->
             
@@ -28,7 +28,7 @@
                             <h2 class="card-title">추천게시물(카테고리 중 top)</h2>
                             <p class="card-text">게시물 1 본문내용</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">더보기</a></div>
                     </div>
                 </div>
                 
@@ -38,7 +38,7 @@
                             <h2 class="card-title">추천게시물(카테고리 중 top)</h2>
                             <p class="card-text">게시물 2 본문내용</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">더보기</a></div>
                     </div>
                 </div>
                 
@@ -48,7 +48,7 @@
                             <h2 class="card-title">추천게시물(카테고리 중 top)</h2>
                             <p class="card-text">게시물 3 본문내용</p>
                         </div>
-                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+                        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">더보기</a></div>
                     </div>
                 </div>
             </div>
