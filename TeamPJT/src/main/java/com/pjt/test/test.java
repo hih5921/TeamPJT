@@ -15,7 +15,7 @@ public class test {
 	
 	@RequestMapping("/detaile")
 	public String detaile() {
-
+		System.out.println("수정합니다.");
 		return "pjt/detaile";
 	}
 }
