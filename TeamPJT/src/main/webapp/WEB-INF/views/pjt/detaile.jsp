@@ -45,7 +45,6 @@
 				</div>
 			</div>
 
-
 			<br>
 			<div class="card card-primary card-outline">
 				<%--댓글 유무 / 댓글 갯수 / 댓글 펼치기, 접기--%>
@@ -65,7 +64,6 @@
 					<nav aria-label="Contacts Page Navigation">
 						<ul
 							class="pagination pagination-sm no-margin justify-content-center m-0">
-
 						</ul>
 					</nav>
 				</div>
@@ -86,7 +84,7 @@
 					</div>
 				</form>
 			</div>
-
+	</div>
 			<%@include file="footer.jsp"%>
 	</main>
 
