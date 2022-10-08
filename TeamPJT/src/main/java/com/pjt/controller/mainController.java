@@ -9,13 +9,13 @@ public class mainController {
 	
 	@RequestMapping("/main")
 	public String main() {
-
 		return "pjt/main";
 	}
 	
 	@RequestMapping("/detaile")
 	public String detaile() {
-
 		return "pjt/detaile";
 	}
+	
+	
 }

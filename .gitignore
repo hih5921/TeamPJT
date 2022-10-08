@@ -120,5 +120,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 #pom.properties
-*pom.properties
+*.properties
+TeamPJT/target/m2e-wtp/web-resources/META-INF/maven/com.pjt/test/pom.properties
+
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
