@@ -34,6 +34,7 @@
 	</bean>
 
 	<mybatis-spring:scan base-package="com.pjt.member.mapper"/>
+	<mybatis-spring:scan base-package="com.pjt.mapper"/>
 	
 	
 </beans>
