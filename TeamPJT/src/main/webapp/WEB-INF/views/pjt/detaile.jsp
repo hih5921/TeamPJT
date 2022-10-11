@@ -43,7 +43,6 @@
 			<br>
 			
 			<!-- 댓글처리 -->
-			<h4>Comment</h4>
 			<div class="card card-primary card-outline">
 				
 				<%--댓글 유무 / 댓글 갯수 / 댓글 펼치기, 접기--%>
@@ -51,19 +50,16 @@
 					<a href="" class="link-black text-lg"><i
 						class="fas fa-comments margin-r-5 replyCount"></i></a>
 					<div class="card-tools">
-						<button type="button" class="btn primary" data-widget="collapse">
-							<i class="fa fa-plus"></i>
-						</button>
+						<h4>Comment</h4>
 					</div>
 				</div>
 				<%--댓글 목록--%>
-				<div class="card-body repliesDiv"></div>
+				<div class="card-body repliesDiv"><h4>댓글</h4></div>
 				<%--댓글 페이징--%>
 				<div class="card-footer">
 					<nav aria-label="Contacts Page Navigation">
 						<ul
 							class="pagination pagination-sm no-margin justify-content-center m-0">
-
 						</ul>
 					</nav>
 				</div>
@@ -100,10 +96,6 @@
 
 <!-- jQuery -->
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="${path}/resources/js/reply.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 <!-- 
 <script type="text/javascript">
 	$(document).redy(function() {
