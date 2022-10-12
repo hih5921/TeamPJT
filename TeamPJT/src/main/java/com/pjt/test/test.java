@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/pjt/")
 public class test {
+
 	@RequestMapping("/main")
 	public String test() {
+	
 		return "pjt/main";
 	}
 	@RequestMapping("/detaile")
