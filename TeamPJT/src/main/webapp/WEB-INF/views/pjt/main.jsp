@@ -15,7 +15,7 @@
 		<div class="col-lg-5">
 			<h1 class="font-weight-light">전체 게시물 조회수 top</h1>
 			<p>조회수 top 게시물 본문 내용</p>
-			<a class="btn btn-primary" href="#!">더보기</a>
+			<a class="btn btn-primary" href="#!">더보기 test</a>
 		</div>
 	</div>
 	<!-- Call to Action-->
