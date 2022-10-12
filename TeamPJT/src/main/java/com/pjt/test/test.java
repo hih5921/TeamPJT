@@ -7,17 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/pjt/")
 public class test {
 
-	@RequestMapping("/main")
-	public String test() {
-	
-		return "pjt/main";
-	}
-	@RequestMapping("/detaile")
-	public String detaile() {
-		System.out.println("수정합니다.");
-		return "pjt/detaile";
-	}
-	
 	@RequestMapping("/mypage")
 	public String mypage() {
 		return "pjt/mypage";
