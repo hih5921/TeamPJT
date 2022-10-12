@@ -10,7 +10,6 @@ public class test {
 	public String test() {
 		return "pjt/main";
 	}
-	
 	@RequestMapping("/detaile")
 	public String detaile() {
 		System.out.println("수정합니다.");
