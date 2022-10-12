@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.pjt.member.commend.MemberVO;
 import com.pjt.service.MemberService;
 
-import lombok.extern.log4j.Log4j;
 
 @Controller
 @RequestMapping("/member")
-
 public class MemberController {
 
 	
