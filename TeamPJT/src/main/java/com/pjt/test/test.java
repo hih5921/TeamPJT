@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class test {
 	@RequestMapping("/main")
 	public String test() {
-
 		return "pjt/main";
 	}
 	
