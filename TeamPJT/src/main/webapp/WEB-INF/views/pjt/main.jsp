@@ -15,7 +15,7 @@
 		<div class="col-lg-5">
 			<h1 class="font-weight-light">전체 게시물 조회수 top</h1>
 			<p>조회수 top 게시물 본문 내용</p>
-			<a class="btn btn-primary" href="#!">더보기 test</a>
+			<a class="btn btn-primary" href="#!">더보기</a>
 		</div>
 	</div>
 	<!-- Call to Action-->
@@ -29,24 +29,22 @@
 	<div class="row gx-4 gx-lg-5">
 		<div class="col-md-4 mb-5">
 			<div class="card" style="width: 18rem;">
-				<img src="..." class="card-img-top" alt="...">
+				<img src="/resources/img/image-5.png" class="card-img-top" alt="...">
 				<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text">Some quick example text to build on the
-						card title and make up the bulk of the card's content.</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
+					<h5 class="card-title">제목</h5>
+					<p class="card-text">간단한 내용</p>
+					<a href="#" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
 		</div>
 
 		<div class="col-md-4 mb-5">
 			<div class="card" style="width: 18rem;">
-				<img src="..." class="card-img-top" alt="...">
+				<img src="/resources/img/image-5.png" class="card-img-top" alt="...">
 				<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text">Some quick example text to build on the
-						card title and make up the bulk of the card's content.</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
+					<h5 class="card-title">제목</h5>
+					<p class="card-text">간단한 내용</p>
+					<a href="#" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
 		</div>
@@ -54,12 +52,11 @@
 
 		<div class="col-md-4 mb-5">
 			<div class="card" style="width: 18rem;">
-				<img src="..." class="card-img-top" alt="...">
+				<img src="/resources/img/image-5.png" class="card-img-top" alt="...">
 				<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text">Some quick example text to build on the
-						card title and make up the bulk of the card's content.</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
+					<h5 class="card-title">제목</h5>
+					<p class="card-text">간단한 내용</p>
+					<a href="#" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
 		</div>

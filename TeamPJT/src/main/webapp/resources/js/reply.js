@@ -26,9 +26,9 @@
 		})
 	}
 	function getList(param, callback,error){
-		var bno = param.bno;
+		var board_num = param.board_num;
 		var page = param.page ||1;
-		$.getJSON("/pjt/replies/pages/"+bno+"/"+page+".json",
+		$.getJSON("/pjt/replies/pages/"+board_num+"/"+page+".json",
 			function(data){
 				if(callback){
 					callback(data.replyCnt,data.list);
@@ -39,10 +39,10 @@
 				}
 			});
 	}
-	function remove(rno,callback,error){
+	function remove(reply_num,callback,error){
 		$.ajax({
 			type:'delete',
-			url:'../replies/'+rno,
+			url:'../replies/'+reply_num,
 			success:function(deleteResult,status,xhr){
 				if(callback){
 					callback(deleteResult);
