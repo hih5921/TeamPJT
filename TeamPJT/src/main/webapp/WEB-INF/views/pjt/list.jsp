@@ -8,8 +8,7 @@
 <%@include file="header.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Header가 아래 Style sheet때문에 문제 발생 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 
 <style type="text/css">
 .row {
@@ -20,7 +19,6 @@
 h1 {
 	text-align: center;
 }
-</script>
 </style>
 
 <body>
