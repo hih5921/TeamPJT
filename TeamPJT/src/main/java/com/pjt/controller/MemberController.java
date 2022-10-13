@@ -38,6 +38,27 @@ public class MemberController {
 		
 	}
 	
+	@RequestMapping("/mypage")
+	public String mypage() {
+		return "/pjt/member/mypage";
+	}
+	
+	@RequestMapping("/update_member")
+	public String update_member() {
+		return "/pjt/member/update_member";
+	}
+	
+	@RequestMapping("/update_pw")
+	public String update_pw() {
+		return "/pjt/member/update_pw";
+	}
+	
+	@RequestMapping("/delete")
+	public String delete() {
+		return "/pjt/member/delete";
+	}
+	
+	
 	
 	
 	
