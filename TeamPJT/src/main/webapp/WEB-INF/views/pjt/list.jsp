@@ -34,7 +34,7 @@ h1 {
 			</table>
 				<table class="table table-striped">
 				<tr class="danger">
-					<th class="text-center" width=5%>번호</th>
+					<th class="text-center" width=5%>글번호</th>
 					<th class="text-center" width=10%>카테고리</th>
 					<th class="text-center" width=15%>제목</th>
 					<th class="text-center" width=25%>내용</th>
