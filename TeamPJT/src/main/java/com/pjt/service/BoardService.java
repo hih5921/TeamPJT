@@ -8,3 +8,4 @@ import com.pjt.command.BoardVO;
 public interface BoardService {
 	public BoardVO getDetaile(int board_num);
 }
+//test 
