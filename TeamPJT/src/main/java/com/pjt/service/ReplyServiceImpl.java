@@ -15,40 +15,12 @@ import lombok.Setter;
 
 @Service
 public class ReplyServiceImpl implements ReplyService {
-	@Setter(onMethod_ = @Autowired)
-	private ReplyMapper mapper;
+	
+	@Autowired
+	ReplyMapper rm;
 	
 	@Override
-	public ReplyVO get(int rno) {
-		
-		return mapper.read(rno);
-	}
-	
-	@Override
-	public List<ReplyVO> getList(Criteria cri, int bno) {
-		
-		return mapper.getListWithPaging(cri, bno);
-	}
-	
-	@Override
-	public int modify(ReplyVO vo) {
-		
-		return mapper.update(vo);
-	}
-	
-	@Override
-	public int register(ReplyVO vo) {
-		
-		return mapper.insert(vo);
-	}
-	
-	@Override
-	public int remove(int rno) {
-		return mapper.delete(rno);
-	}
-	@Override
-	public ReplyPageVO getListPage(Criteria cri, int bno) {
-		
-		return new ReplyPageVO(mapper.getCountBybno(bno), mapper.getListWithPaging(cri, bno));
+	public List<ReplyVO> getList(int board_num) {
+		return rm.getList(board_num);
 	}
 }

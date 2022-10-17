@@ -52,6 +52,7 @@
 
 			<div class="my-3 p-3 bg-body rounded shadow-sm">
 				<h6 class="border-bottom pb-2 mb-0">댓글</h6>
+				<!-- 반복 -->
 				<div class="d-flex text-muted pt-3">
 					<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded"
 						width="32" height="32" xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +69,9 @@
 						</div>
 						<span class="d-block">reply_content</span>
 					</div>
+					
 				</div>
+				<!-- 반복 -->
 
 			</div>
 			<form class="form-horizontal">

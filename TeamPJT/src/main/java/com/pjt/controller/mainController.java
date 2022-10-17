@@ -25,11 +25,7 @@ public class mainController {
 		return "pjt/main";
 	}
 	
-	@RequestMapping("/detaile")
-	public String detaile(int board_num,Model mo) {
-		mo.addAttribute("list", bs.getDetaile(board_num));
-		return "pjt/detaile";
-	}
+	
 	
 	
 	
