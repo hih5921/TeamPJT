@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 <head>
 </head>
 <body>
@@ -52,25 +52,27 @@
 
 			<div class="my-3 p-3 bg-body rounded shadow-sm">
 				<h6 class="border-bottom pb-2 mb-0">댓글</h6>
+				<c:forEach var="reply" items="${reply_list}">
 				<!-- 반복 -->
 				<div class="d-flex text-muted pt-3">
 					<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded"
 						width="32" height="32" xmlns="http://www.w3.org/2000/svg"
 						role="img" aria-label="Placeholder: 32x32"
 						preserveAspectRatio="xMidYMid slice" focusable="false">
-						<title>Placeholder</title><rect width="100%" height="100%"
+						<rect width="100%" height="100%"
 							fill="#007bff" />
 						<text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
 
 					<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 						<div class="d-flex justify-content-between">
-							<strong class="text-gray-dark">user_id</strong> <a href="#"
+							<strong class="text-gray-dark">user_id</strong> <a href="/replies/delReply?reply_num=${reply.reply_num}&board_num=${reply.board_num}"
 								class="small">삭제</a>
 						</div>
-						<span class="d-block">reply_content</span>
+						<span class="d-block">${reply.reply_coment}</span>
 					</div>
 					
 				</div>
+				</c:forEach>
 				<!-- 반복 -->
 
 			</div>
@@ -86,14 +88,14 @@
 					</div>
 					<div class="form-group col-sm-2">
 						<button type="button"
-							class="btn btn-s btn-secondary btn-block replyAddBtn">
+							class="btn btn-s btn-secondary btn-block replyAddBtn" onclick="location.href='/replies/delReply?user_id=${user_id }&board_num=${reply.board_num}&reply_coment=${reply_coment }'">
 							<i class="fa fa-save"></i> 저장
 						</button>
 					</div>
 				</div>
 			</form>
 		</div>
-		<%@include file="footer.jsp"%>
+		<%@include file="../footer.jsp"%>
 	</main>
 
 

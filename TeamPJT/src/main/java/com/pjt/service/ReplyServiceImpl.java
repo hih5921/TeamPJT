@@ -23,4 +23,14 @@ public class ReplyServiceImpl implements ReplyService {
 	public List<ReplyVO> getList(int board_num) {
 		return rm.getList(board_num);
 	}
+	
+	@Override
+	public void addReply(String reply_coment, int board_num, String user_id) {
+		rm.addReply(reply_coment, board_num, user_id);		
+	}
+	
+	@Override
+	public void delReply(int reply_num) {
+		rm.delReply(reply_num);		
+	}
 }

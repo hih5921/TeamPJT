@@ -33,7 +33,7 @@ public class BoardController {
  
     @RequestMapping("/list")
 	public String main() {
-		return "pjt/list";
+		return "pjt/board/list";
 	}
     //게시글 리스트 조회
 //    @RequestMapping("/list")
@@ -55,7 +55,7 @@ public class BoardController {
 	public String detaile(int board_num,Model mo) {
     	mo.addAttribute("list", boardService.getDetaile(board_num));
     	mo.addAttribute("reply_list", rs.getList(board_num));
-		return "pjt/detaile";
+		return "pjt/board/detaile";
 	}
     
 }
