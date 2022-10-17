@@ -5,7 +5,7 @@
 <%-- SimpleDateFormat --%>
 <!DOCTYPE html>
 <html>
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Header가 아래 Style sheet때문에 문제 발생 -->
 
@@ -66,6 +66,6 @@ h1 {
 		</div>
 	</div>
 
-<%@include file="footer.jsp"%>
+<%@include file="../footer.jsp"%>
 </body>
 </html>

@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,56 +24,25 @@ import com.pjt.service.ReplyServiceImpl;
 import lombok.AllArgsConstructor;
 
 
-@RestController
+
 @RequestMapping("/replies")
-@AllArgsConstructor
+@Controller
 public class ReplyController {
 	
 	@Autowired
 	ReplyService rs;
 	
-	@PostMapping(value = "/new", consumes="application/json", produces= {MediaType.TEXT_PLAIN_VALUE})
-	public ResponseEntity<String> create(@RequestBody ReplyVO vo){
-		System.out.println("ReplyVO : "+vo);
-		
-		return rs.register(vo)==1? new ResponseEntity<String>("success",HttpStatus.OK):
-			new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+	@RequestMapping("/addReply")
+	public String addReply(String reply_coment,int board_num,String user_id,Model mo) {
+		rs.addReply(reply_coment, board_num, user_id);
+		mo.addAttribute("board_num",board_num);
+		return "redirect:/board/detaile";
 	}
 	
-	@GetMapping(value = "/pages/{bno}/{page}",produces= {
-			MediaType.APPLICATION_XML_VALUE, 
-			MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<ReplyPageVO> getList(@PathVariable("page") int page, @PathVariable("bno") int bno ){
-		Criteria cri = new Criteria(page,10);
-		System.out.println(cri);
-		
-		return new ResponseEntity<ReplyPageVO>(rs.getListPage(cri, bno),HttpStatus.OK);
-		
+	@RequestMapping("/delReply")
+	public String delReply(int reply_num,int board_num,Model mo) {
+		rs.delReply(reply_num);
+		mo.addAttribute("board_num",board_num);
+		return "redirect:/board/detaile";
 	}
-	
-	//조회 및 삭제 
-	@GetMapping(value = "/{rno}",produces = {
-			MediaType.APPLICATION_XML_VALUE,
-			MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<ReplyVO> get(@PathVariable("rno") int rno){
-		System.out.println("get"+rno);
-		return new ResponseEntity<ReplyVO>(rs.get(rno),HttpStatus.OK);
-	}
-	
-	@DeleteMapping(value = "/{rno}", produces= {MediaType.TEXT_PLAIN_VALUE})
-	public ResponseEntity<String> remove(@PathVariable("rno") int rno){
-		
-		return rs.remove(rno)==1?
-				new ResponseEntity<String>("success",HttpStatus.OK):
-					new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-	
-	@RequestMapping(value = "/{rno}", method = {RequestMethod.PUT, RequestMethod.PATCH},consumes="application/json",produces= {MediaType.TEXT_PLAIN_VALUE})
-	public ResponseEntity<String> modify(@RequestBody ReplyVO vo,@PathVariable("rno")int rno){
-		vo.setReply_num(rno);
-		return rs.modify(vo)==1?new ResponseEntity<String>("success",HttpStatus.OK):
-			new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
-		
-	}
-	
 }

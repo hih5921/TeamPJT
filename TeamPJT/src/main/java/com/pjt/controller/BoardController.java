@@ -17,19 +17,23 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.pjt.command.BoardVO;
 import com.pjt.command.Criteria;
 import com.pjt.service.BoardService;
+import com.pjt.service.ReplyService;
  
 
  
 @Controller
-@RequestMapping("/pjt/")
+@RequestMapping("/board/")
 public class BoardController {
  
     @Autowired
     BoardService boardService;
+    
+    @Autowired
+    ReplyService rs;
  
     @RequestMapping("/list")
 	public String main() {
-		return "pjt/list";
+		return "pjt/board/list";
 	}
     //게시글 리스트 조회
 //    @RequestMapping("/list")
@@ -46,5 +50,12 @@ public class BoardController {
 //		return "list";
 //   
 //    }
+    
+    @RequestMapping("/detaile")
+	public String detaile(int board_num,Model mo) {
+    	mo.addAttribute("list", boardService.getDetaile(board_num));
+    	mo.addAttribute("reply_list", rs.getList(board_num));
+		return "pjt/board/detaile";
+	}
     
 }

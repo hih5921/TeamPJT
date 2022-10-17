@@ -4,16 +4,10 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.pjt.command.Criteria;
 import com.pjt.command.ReplyVO;
 
-
 public interface ReplyMapper {
-	public int insert(ReplyVO vo);
-	public ReplyVO read(int reply_num) ;
-	public int delete(int reply_num);
-	public int update(ReplyVO vo);
-	public List<ReplyVO> getListWithPaging(@Param("cri") Criteria cri, @Param("board_num") int board_num);
-	public int getCountBybno(int board_num);
-	
+	public List<ReplyVO> getList(int board_num);
+	public void delReply(int reply_num);
+	public void addReply(@Param("reply_coment")String reply_coment, @Param("board_num")int board_num,@Param("user_id")String user_id);
 }
