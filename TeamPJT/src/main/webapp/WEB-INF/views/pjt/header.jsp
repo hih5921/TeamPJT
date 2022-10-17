@@ -28,7 +28,7 @@
                         <li class="nav-item"><a class="nav-link" href="#!">추천 리뷰</a></li>
                         <c:choose >
                         	<c:when test="${empty id}">                      
-                        		<li class="nav-item"><a class="nav-link" href="#!">로그인</a></li>
+                        		<li class="nav-item"><a class="nav-link" href="/member/login">로그인</a></li>
                         	</c:when>
                         	<c:otherwise>
                         		<li class="nav-item"><a class="nav-link" href="#!">내정보</a></li>
