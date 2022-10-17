@@ -65,7 +65,7 @@
 
 					<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 						<div class="d-flex justify-content-between">
-							<strong class="text-gray-dark">user_id</strong> <a href="/replies/delReply?reply_num=${reply.reply_num}&board_num=${reply.board_num}"
+							<strong class="text-gray-dark" >user_id</strong> <a href="/replies/delReply?reply_num=${reply.reply_num}&board_num=${reply.board_num}"
 								class="small">삭제</a>
 						</div>
 						<span class="d-block">${reply.reply_coment}</span>
@@ -79,16 +79,16 @@
 			<form class="form-horizontal">
 				<div class="row">
 					<div class="form-group col-sm-8">
-						<input class="form-control input-sm" id="newReplyText" type="text"
+						<input class="form-control input-sm" id="reply_coment" type="text"
 							placeholder="댓글 입력...">
 					</div>
 					<div class="form-group col-sm-2">
-						<input class="form-control input-sm" id="newReplyWriter"
+						<input class="form-control input-sm" id="user_id"
 							type="text" placeholder="작성자">
 					</div>
 					<div class="form-group col-sm-2">
 						<button type="button"
-							class="btn btn-s btn-secondary btn-block replyAddBtn" onclick="location.href='/replies/delReply?user_id=${user_id }&board_num=${reply.board_num}&reply_coment=${reply_coment }'">
+							class="btn btn-s btn-secondary btn-block replyAddBtn" onclick="location.href='/replies/delReply?board_num=${list.board_num}&user_id=$('#user_id').val()&reply_coment=$('#reply_coment').val()'">
 							<i class="fa fa-save"></i> 저장
 						</button>
 					</div>
