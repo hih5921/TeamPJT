@@ -7,4 +7,8 @@
 	<select id="getDetaile" resultType="com.pjt.command.BoardVO">
 		select * from tbl_board where board_num= #{board_num}
 	</select>
+	<insert id="register" parameterType="com.pjt.command.BoardVO">
+		insert into tbl_board(board_category,board_title,board_content,user_id,board_strength,board_weakness,board_score)
+VALUES(#{board_category},#{board_title},#{board_content},#{user_id},#{board_strength},#{board_weakness},#{board_score})
+	</insert>
 </mapper>

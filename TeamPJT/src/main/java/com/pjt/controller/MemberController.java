@@ -28,7 +28,7 @@ public class MemberController {
 	
 	@RequestMapping("/join")
 	public String join() {
-		return "pjt/member/join";
+		return "/pjt/member/join";
 	}
 	
 	@RequestMapping(value="/join", method=RequestMethod.POST)

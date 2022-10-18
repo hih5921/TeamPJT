@@ -27,7 +27,7 @@ h1 {
 			<h1>전체 게시판</h1>
 		
 				<div align="right">	
-				 <button type="button" class="btn btn-primary btn-sm float-right" onclick="" >글쓰기</button>
+				 <button type="button" class="btn btn-primary btn-sm float-right" onclick="location.href='/board/register'" >글쓰기</button>
 				 <br>
 				 </div>
 				
@@ -66,6 +66,7 @@ h1 {
 				</td>
 			</table>
 		</div>
+		
 	</div>
 
 <%@include file="../footer.jsp"%>

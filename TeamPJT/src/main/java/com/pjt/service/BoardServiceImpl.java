@@ -20,4 +20,9 @@ public class BoardServiceImpl implements BoardService{
 	public BoardVO getDetaile(int board_num) {
 		return bmp.getDetaile(board_num);
 	}
+	@Override
+	public void register(BoardVO vo) {
+		bmp.register(vo);
+		
+	}
 }
