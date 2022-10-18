@@ -23,12 +23,12 @@ public class MemberController {
 	//로그인 화면
 	@RequestMapping("/login")
 	public String login() {
-		return "member/login";
+		return "/pjt/member/login";
 	}
 	
 	@RequestMapping("/join")
 	public String join() {
-		return "member/join";
+		return "/pjt/member/join";
 	}
 	
 	@RequestMapping(value="/join", method=RequestMethod.POST)
