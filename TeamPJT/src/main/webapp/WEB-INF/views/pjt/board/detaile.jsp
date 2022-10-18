@@ -65,8 +65,7 @@
 
 					<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 						<div class="d-flex justify-content-between">
-							<strong class="text-gray-dark" >user_id</strong> <a href="/replies/delReply?reply_num=${reply.reply_num}&board_num=${reply.board_num}"
-								class="small">삭제</a>
+							<strong class="text-gray-dark" >user_id</strong> <a href="addReply()" class="small">삭제</a>
 						</div>
 						<span class="d-block">${reply.reply_coment}</span>
 					</div>
@@ -88,7 +87,7 @@
 					</div>
 					<div class="form-group col-sm-2">
 						<button type="button"
-							class="btn btn-s btn-secondary btn-block replyAddBtn" onclick="location.href='/replies/delReply?board_num=${list.board_num}&user_id=$('#user_id').val()&reply_coment=$('#reply_coment').val()'">
+							class="btn btn-s btn-secondary btn-block replyAddBtn" onclick="addReply()">
 							<i class="fa fa-save"></i> 저장
 						</button>
 					</div>
@@ -102,10 +101,18 @@
 	<!-- jQuery -->
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 
-	<script type="text/javascript">
-		$(document).ready(function() {
-			
-		});
-	</script>
+	
+<script type="text/javascript">
+function addReply() {
+	var user_id = $('#user_id').val() 
+	var reply_coment = $('#reply_coment').val()
+	var board_num = ${param.board_num}
+	location.href="/replies/addReply?board_num="+board_num+"&user_id="+user_id+"&reply_coment="+reply_coment
+	
+
+	
+	 
+}
+</script>
 </body>
 </html>

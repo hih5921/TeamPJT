@@ -25,21 +25,23 @@ h1 {
 	<div class="container">
 		<div class="row">
 			<h1>전체 게시판</h1>
-			<table class="table">
-				<tr>
-				 	<button type="button" class="btn btn-primary btn-sm float-right" onclick="">글쓰기</button>	
-				</tr>
-			</table>
-				<table class="table table-striped">
+		
+				<div align="right">	
+				 <button type="button" class="btn btn-primary btn-sm float-right" onclick="" >글쓰기</button>
+				 <br>
+				 </div>
+				
+							
+				<table class="table table-striped" style="background: gray;">
 				<tr class="danger">
-					<th class="text-center" width=5%>글번호</th>
+					<th class="text-center" width=8%>글번호</th>
 					<th class="text-center" width=10%>카테고리</th>
 					<th class="text-center" width=15%>제목</th>
-					<th class="text-center" width=25%>내용</th>
+					<th class="text-center" width=20%>내용</th>
 					<th class="text-center" width=10%>작성일</th>
-					<th class="text-center" width=5%>평점</th>
+					<th class="text-center" width=6%>평점</th>
 					<th class="text-center" width=10%>조회수</th>
-					<th class="text-center" width=5%>추천</th>
+					<th class="text-center" width=6%>추천</th>
 					<th class="text-center" width=10%>아이디</th>					
 				</tr>
 				<c:forEach var="vo" items="${list }">

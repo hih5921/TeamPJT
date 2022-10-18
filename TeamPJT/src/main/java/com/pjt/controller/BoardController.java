@@ -58,4 +58,9 @@ public class BoardController {
 		return "pjt/board/detaile";
 	}
     
+    @RequestMapping("/register")
+    public String newContent(){
+    	return "pjt/board/register";
+    }
+    
 }
