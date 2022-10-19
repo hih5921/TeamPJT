@@ -31,18 +31,18 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public int idCheck(String user_id) {
+	public int idCheck(String id) {
 		
-		int result = mapper.idCheck(user_id);
+		int result = mapper.idCheck(id);
 		System.out.println(result);
 		
 		return result;
 	}
 	
 	@Override
-	public int nickCheck(String user_nick) {
+	public int nickCheck(String nickname) {
 		
-		int result = mapper.nickCheck(user_nick);
+		int result = mapper.nickCheck(nickname);
 		System.out.println(result);
 		
 		return result;

@@ -7,18 +7,18 @@
  
  
 	<insert id="join" parameterType="com.pjt.member.commend.MemberVO">
-		insert into member(id, pw, phone, address, email, nick ) values (#{user_id}, #{user_pw}, #{user_phone}, #{user_address}, #{user_email}, #{user_nick} )
+		insert into member(user_id, user_pw, user_phone, user_address, user_email, user_nick ) values (#{id}, #{pw}, #{phone}, #{address}, #{email}, #{nick} )
 	</insert>
 
 	<select id="login" parameterType="com.pjt.member.commend.MemberVO" resultType="int">
 		select count(*) as result 
 		from member 
-		where id = #{user_id} and user_pw =#{user_pw}
+		where user_id = #{id} and user_pw =#{pw}
 	</select>
 	
-	<select id="id_check" resultType="int">
+	<select id="id_check" resultType="STRI">
 		select count(*) as result 
-		from member where id = #{user_id}
+		from member where user_id = #{id}
 	</select>
 	
 

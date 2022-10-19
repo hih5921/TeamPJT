@@ -10,14 +10,14 @@
 <body>
 	<section>
 		<div align="center">
-			<form action="join_ok" method="post">
+			<form action="joinForm" method="post" id="regForm">
 				<br><br>
 				<h2>JOIN</h2><br>
 				<table>
 					<tr>
 						<td>ID</td>
 						<td><input type="text" name="id" class="form-control"></td>
-						<td><input type="button" value="check" class="btn btn-dark" onclick="Id_check()"></td>
+						<td><input type="button" value="check" class="btn btn-dark" onclick="idCheck()"></td>
 					</tr>
 					<tr>
 						<td>PW</td>
@@ -58,10 +58,10 @@
 	
 	<script type ="text/javascript">
 	
-	function Id_check(){
+	function idCheck(){
 		
 		var id = $("#id").val(); 
-		var userID ={"id":id};
+		var userID ={"id":user_id};
 		
 		$.ajax({
 			type: "post",

@@ -4,9 +4,9 @@ import com.pjt.member.commend.MemberVO;
 
 public interface MemberService {
 	
-	public int join(MemberVO vo); //회원가입
-	public int login(MemberVO vo); //로그인
-	public int idCheck(String user_id); //아이디 확인
-	public int nickCheck(String user_nick);
+	public int join(MemberVO vo); 
+	public int login(MemberVO vo); 
+	public int idCheck(String id); 
+	public int nickCheck(String nickname);
 
 }
