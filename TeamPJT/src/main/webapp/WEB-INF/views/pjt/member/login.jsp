@@ -15,7 +15,7 @@
     
 <main class="form-signin w-100 m-auto">
  <div align="center">
-  <form>
+  <form class ="user" action="loginForm" >
 <table class="align-items: center;">
 <tr>
    <td colspan="2" align="center"> <h1 class="h3 mb-3 fw-normal">Login</h1></td> </tr>
@@ -29,12 +29,20 @@
       <br>
       <input type="checkbox" value="remember-me"> Remember me
       <br><br>
-    <button class="btn-primary" type="button" onclick="location.href='/pjt/main'">Sign in</button>
-    
+    <input type="submit" class="btn-primary" value="Sign in">
     <button class="btn-primary" type="button" onclick="location.href='/member/join'">Join</button>
     <p class="mt-5 mb-3 text-muted">2022</p>
   </form>
   </div>
+  
+  	<script type="text/javascript">
+			$(document).ready(function(){
+				var msg = '${msg}';
+				if(msg !=''){
+					alert(msg);
+				}
+			});
+		</script>
 </main>
 </body>
 <%@include file="../footer.jsp"%>

@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입 성공</title>
-<%@include file="../header.jsp"%>
+<title>회원가입 결과</title>
 </head>
 <body>
-	회원가입 성공
+	<script type="text/javascript">
+	alert("${msg}"); //경고창 
+	location.href='login'; //로그인페이지 
+	</script>
 </body>
-<%@include file="../footer.jsp"%>
 </html>
