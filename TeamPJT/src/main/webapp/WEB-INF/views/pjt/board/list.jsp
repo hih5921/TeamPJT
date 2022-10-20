@@ -44,18 +44,18 @@ h1 {
 					<th class="text-center" width=6%>추천</th>
 					<th class="text-center" width=10%>아이디</th>					
 				</tr>
-				<c:forEach var="vo" items="${list }">
+				<c:forEach var="list" items="${board_list }">
 					<tr>
-						<td class="text-center" width=5%>번호</td>
-						<td class="text-center" width=10%>카테고리</td>
-						<td class="text-center" width=15%>제목<a href="="></a></td>
-						<td class="text-center" width=25%>내용</td>
+						<td class="text-center" width=5%>${list.board_num}</td>
+						<td class="text-center" width=10%>${list.board_category }</td>
+						<td class="text-center" width=15%>${list.board_title }<a href="="></a></td>
+						<td class="text-center" width=25%>${list.board_content }</td>
 						<td class="text-center" width=10%>
-						<fmt:formatDate	value="${vo.regdate }" pattern="yyyy-MM-dd" /></td>
-						<td class="text-center" width=5%>평점</td>
-						<td class="text-center" width=10%>조회수</td>
-						<td class="text-center" width=5%>추천</td>
-						<td class="text-center" width=10%>아이디</td>
+						<fmt:formatDate	value="${list.board_date}" pattern="yyyy-MM-dd" /></td>
+						<td class="text-center" width=5%>${list.board_score }</td>
+						<td class="text-center" width=10%>${list.board_view }</td>
+						<td class="text-center" width=5%>구현예정(추천수)</td>
+						<td class="text-center" width=10%>${list.user_id }</td>
 					</tr>
 				</c:forEach>
 			</table>

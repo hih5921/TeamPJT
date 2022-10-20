@@ -10,7 +10,7 @@
 	<br>
 	<main>
 		<div class="container text-center"
-			style="background-color: graytext; color: white;">
+			style="background-color: graytext; color: white; border-collapse:collapse;">
 			<div class="row" style="height: 40px;">
 				<input type="text" class="col-9 bg-light"
 					style="border: 2px solid #888;" value="제목 : ${list.board_title}"
@@ -49,28 +49,32 @@
 			</div>
 
 			<br>
-
+			<div align="center">
+						<button type="button" class="btn btn-secondary" onclick="location.href='modify?board_num=${param.board_num}'">수정</button>
+						<button type="button" class="btn btn-secondary" onclick="location.href='delete'">삭제</button>
+			</div>
 			<div class="my-3 p-3 bg-body rounded shadow-sm">
 				<h6 class="border-bottom pb-2 mb-0">댓글</h6>
 				<c:forEach var="reply" items="${reply_list}">
-				<!-- 반복 -->
-				<div class="d-flex text-muted pt-3">
-					<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded"
-						width="32" height="32" xmlns="http://www.w3.org/2000/svg"
-						role="img" aria-label="Placeholder: 32x32"
-						preserveAspectRatio="xMidYMid slice" focusable="false">
-						<rect width="100%" height="100%"
-							fill="#007bff" />
+					<!-- 반복 -->
+					<div class="d-flex text-muted pt-3">
+						<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded"
+							width="32" height="32" xmlns="http://www.w3.org/2000/svg"
+							role="img" aria-label="Placeholder: 32x32"
+							preserveAspectRatio="xMidYMid slice" focusable="false">
+						<rect width="100%" height="100%" fill="#007bff" />
 						<text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
 
-					<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-						<div class="d-flex justify-content-between">
-							<strong class="text-gray-dark" >user_id</strong> <a href="addReply()" class="small">삭제</a>
+						<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+							<div class="d-flex justify-content-between">
+								<strong class="text-gray-dark"> ${reply.user_id} </strong> <a
+									href="addReply()" class="small">삭제</a>
+							</div>
+							<span class="d-block">${reply.reply_coment}</span>
 						</div>
-						<span class="d-block">${reply.reply_coment}</span>
+
 					</div>
 					
-				</div>
 				</c:forEach>
 				<!-- 반복 -->
 
@@ -82,12 +86,13 @@
 							placeholder="댓글 입력...">
 					</div>
 					<div class="form-group col-sm-2">
-						<input class="form-control input-sm" id="user_id"
-							type="text" placeholder="작성자">
+						<input class="form-control input-sm" id="user_id" type="text"
+							placeholder="작성자">
 					</div>
 					<div class="form-group col-sm-2">
 						<button type="button"
-							class="btn btn-s btn-secondary btn-block replyAddBtn" onclick="addReply()">
+							class="btn btn-s btn-secondary btn-block replyAddBtn"
+							onclick="addReply()">
 							<i class="fa fa-save"></i> 저장
 						</button>
 					</div>
@@ -98,21 +103,17 @@
 	</main>
 
 
-	<!-- jQuery -->
-	<script src="http://code.jquery.com/jquery-latest.js"></script>
 
-	
-<script type="text/javascript">
-function addReply() {
-	var user_id = $('#user_id').val() 
-	var reply_coment = $('#reply_coment').val()
-	var board_num = ${param.board_num}
-	location.href="/replies/addReply?board_num="+board_num+"&user_id="+user_id+"&reply_coment="+reply_coment
-	
 
-	
-	 
-}
-</script>
+	<script type="text/javascript">
+		function addReply() {
+			var user_id = $('#user_id').val()
+			var reply_coment = $('#reply_coment').val()
+			var board_num = ${param.board_num}
+			location.href = "/replies/addReply?board_num=" + board_num
+					+ "&user_id=" + user_id + "&reply_coment=" + reply_coment
+
+		}
+	</script>
 </body>
 </html>

@@ -11,4 +11,18 @@
 		insert into tbl_board(board_category,board_title,board_content,user_id,board_strength,board_weakness,board_score)
 VALUES(#{board_category},#{board_title},#{board_content},#{user_id},#{board_strength},#{board_weakness},#{board_score})
 	</insert>
+	
+	<update id="modify" parameterType="com.pjt.command.BoardVO">
+		update tbl_board set board_category=#{board_category},board_title=#{board_title},board_content=#{board_content},board_strength=#{board_strength},board_weakness=#{board_weakness},board_score=#{board_score} 
+		where board_num= #{board_num}
+	</update>
+	
+	<select id="search" resultType="com.pjt.command.BoardVO">
+		select * from tbl_board where board_title like '%' || #{board_title} || '%' order by board_num
+	</select>
+	
+	<select id="getlist" resultType="com.pjt.command.BoardVO">
+		select * from tbl_board
+	</select>
 </mapper>
+
