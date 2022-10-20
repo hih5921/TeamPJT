@@ -2,6 +2,7 @@ package com.pjt.controller;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
  
 import javax.servlet.http.HttpServletRequest;
@@ -34,24 +35,10 @@ public class BoardController {
     ReplyService rs;
  
     @RequestMapping("/list")
-	public String main() {
+	public String main(Model mo) {
+    	mo.addAttribute("board_list",boardService.getlist()); 
 		return "pjt/board/list";
 	}
-    //게시글 리스트 조회
-//    @RequestMapping("/list")
-//	public String list(Model model,Criteria cri) {
-//		//게시글 정보 가져오기...(Criteria을 기준으로 설정)
-//		ArrayList<BoardVO> list = boardService.getList(cri);
-//		
-//		model.addAttribute("board_list", list);
-//		
-//		//게시글 전체 데이터 가져오기
-//		int total = boardService.getTotal();  //게시글 전체 갯수를 알아오는 메서드
-//		model.addAttribute("pageMaker", new PageVO(cri, total));
-//		
-//		return "list";
-//   
-//    }
     
     @RequestMapping("/detaile")
 	public String detaile(int board_num,Model mo) {
@@ -67,8 +54,31 @@ public class BoardController {
     
     @PostMapping("/register")
     public String register(BoardVO vo) {
-    	System.out.println(vo);
     	boardService.register(vo);
+    	return "pjt/board/list";
+    }
+    
+    @GetMapping("/modify")
+    public String modify(int board_num,Model mo) {
+    	mo.addAttribute("list", boardService.getDetaile(board_num));
+    	return "pjt/board/modify";
+    }
+    
+    @PostMapping("/modify")
+    public String modify(BoardVO vo,Model mo) {
+    	boardService.modify(vo);
+    	
+    	mo.addAttribute("list", boardService.getDetaile(vo.getBoard_num()));
+    	mo.addAttribute("reply_list", rs.getList(vo.getBoard_num()));
+    	System.out.println(vo.getBoard_num());
+    	return "redirect:/board/detaile?board_num="+vo.getBoard_num();
+    }
+    
+    @RequestMapping("/search")
+    public String search(String board_title,Model mo) {
+    	List<BoardVO> test = boardService.search(board_title);
+    	System.out.println(test+"/"+board_title);
+    	mo.addAttribute("board_list",test);
     	return "pjt/board/list";
     }
     

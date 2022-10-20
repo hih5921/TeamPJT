@@ -25,4 +25,20 @@ public class BoardServiceImpl implements BoardService{
 		bmp.register(vo);
 		
 	}
+	
+	@Override
+	public void modify(BoardVO vo) {
+		bmp.modify(vo);
+	}
+	
+	@Override
+	public List<BoardVO> search(String Board_title) {
+		return bmp.search(Board_title);
+	}
+	
+	@Override
+	public List<BoardVO> getlist() {
+		
+		return bmp.getlist();
+	}
 }

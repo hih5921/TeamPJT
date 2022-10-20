@@ -15,6 +15,15 @@
         <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" />
     </head>
     <body>
+    
+	<!-- jQuery -->
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+    	<script type="text/javascript">
+    		function search() {
+				var title = $('#title').val()
+				location.href = "/board/search?board_title="+title
+			}
+    	</script>
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container px-5">
@@ -22,9 +31,9 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    	<li class="nav-item"><input type="text" name="search" id="search" style="padding-left: 10px; padding-top: 10px"  ></li>
-                    	<li class="nav-item"><button type="button" class="btn btn-secondary">검색</button></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/pjt/main">메인</a></li>
+                    	<li class="nav-item"><input type="text" name="title" id="title" style="padding-left: 10px; padding-top: 10px"  ></li>
+                    	<li class="nav-item"><button type="button" class="btn btn-secondary" onclick="search()">검색</button></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/pjt/main" name="title">메인</a></li>
                         <li class="nav-item"><a class="nav-link" href="/board/list">추천 리뷰</a></li>
                         <c:choose >
                         	<c:when test="${empty id}">                      
