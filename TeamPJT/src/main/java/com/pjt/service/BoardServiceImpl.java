@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pjt.command.BoardVO;
+import com.pjt.command.Criteria;
 import com.pjt.mapper.BoardMapper;
 
 @Service
@@ -37,8 +38,14 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override
-	public List<BoardVO> getlist() {
-		
-		return bmp.getlist();
+	public ArrayList<BoardVO> getlist(Criteria cri) {
+		ArrayList<BoardVO>list = bmp.pagingList(cri);
+		return list;
+	}
+	
+	@Override
+	public int getTotal() {
+		int total = bmp.getTotal();
+		return total;
 	}
 }

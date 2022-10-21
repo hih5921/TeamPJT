@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 import com.pjt.command.BoardVO;
 import com.pjt.command.Criteria;
+import com.pjt.command.PageVO;
 import com.pjt.service.BoardService;
 import com.pjt.service.ReplyService;
  
@@ -34,12 +36,12 @@ public class BoardController {
     @Autowired
     ReplyService rs;
  
-    @RequestMapping("/list")
-	public String main(Model mo) {
-    	mo.addAttribute("board_list",boardService.getlist()); 
-		return "pjt/board/list";
-	}
-    
+//    @RequestMapping("/list")
+//	public String main(Model mo) {
+//    	mo.addAttribute("board_list",boardService.getlist()); 
+//		return "pjt/board/list";
+//	}
+//    
     @RequestMapping("/detaile")
 	public String detaile(int board_num,Model mo) {
     	mo.addAttribute("list", boardService.getDetaile(board_num));
@@ -81,5 +83,16 @@ public class BoardController {
     	mo.addAttribute("board_list",test);
     	return "pjt/board/list";
     }
+	@RequestMapping("/list")
+	public String list(Model model, Criteria cri) {
+		ArrayList<BoardVO> list = boardService.getlist(cri);
+				model.addAttribute("board_list", list);
+		
+
+		int total = boardService.getTotal(); 	 
+		model.addAttribute("pageMaker", new PageVO(cri, total));
+		
+		return "pjt/board/list";
     
+}
 }
