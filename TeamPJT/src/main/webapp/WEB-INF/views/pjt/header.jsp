@@ -13,6 +13,15 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="${pageContext.request.contextPath}/resources/css/styles.css" rel="stylesheet" />
+        
+        <style type="text/css">
+	.input-file-button{
+  padding: 6px 25px;
+  background-color:silver;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+</style>
     </head>
     <body class="d-flex flex-column min-vh-100">
     
