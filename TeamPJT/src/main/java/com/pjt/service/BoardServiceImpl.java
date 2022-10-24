@@ -5,11 +5,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.pjt.command.BoardVO;
 import com.pjt.command.Criteria;
+import com.pjt.command.ImgVO;
 import com.pjt.mapper.BoardMapper;
 
+@Transactional
 @Service
 public class BoardServiceImpl implements BoardService{
 
@@ -21,9 +24,19 @@ public class BoardServiceImpl implements BoardService{
 	public BoardVO getDetaile(int board_num) {
 		return bmp.getDetaile(board_num);
 	}
+	
 	@Override
 	public void register(BoardVO vo) {
 		bmp.register(vo);
+		if(vo.getImageList() == null || vo.getImageList().size() <= 0) {
+			return;
+		}
+		System.out.println("1"+vo.getImageList());
+		System.out.println("2"+vo.getBoard_num());
+		for(ImgVO attach : vo.getImageList()) {
+			attach.setBoard_num(vo.getBoard_num());
+			bmp.imageEnroll(attach);
+		}
 		
 	}
 	
@@ -48,4 +61,12 @@ public class BoardServiceImpl implements BoardService{
 		int total = bmp.getTotal();
 		return total;
 	}
+	
+	@Override
+	public void imageEnroll(ImgVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 }

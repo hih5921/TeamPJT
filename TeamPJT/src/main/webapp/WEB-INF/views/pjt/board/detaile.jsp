@@ -12,22 +12,15 @@
 		<div class="container text-center"
 			style="background-color: graytext; color: white; border-collapse:collapse;">
 			<div class="row" style="height: 40px;">
-				<input type="text" class="col-9 bg-light"
-					style="border: 2px solid #888;" value="제목 : ${list.board_title}"
-					readonly /> <input type="text" class="col-3 bg-light"
-					style="border: 2px solid #888;" value="별점 : ${list.board_score}"
-					readonly />
+				<input type="text" class="col-9 bg-light" style="border: 2px solid #888;" value="제목 : ${list.board_title}" readonly /> 
+								<input type="text" class="col-3 bg-light" style="border: 2px solid #888; color: gold;" 
+				value="<c:forEach var="a" begin="1" end="${list.board_score }">★</c:forEach>"name="board_score" readonly/>
 			</div>
 			<div class="row">
-				<input type="text" class="col bg-light"
-					style="border: 2px solid #888;" value="작성자 : ${list.user_id}"
-					readonly /> <input type="text" class="col bg-light"
-					style="border: 2px solid #888;"
-					value="카테고리 : ${list.board_category}" readonly /> <input
-					type="text" class="col bg-light" style="border: 2px solid #888;"
-					value="조회수 : ${list.board_view}" readonly /> <input type="text"
-					class="col bg-light" style="border: 2px solid #888;"
-					value="작성일 : ${list.board_date}" readonly />
+				<input type="text" class="col bg-light"	style="border: 2px solid #888;" value="작성자 : ${list.user_id}" readonly /> 
+				<input type="text" class="col bg-light" style="border: 2px solid #888;" value="카테고리 : ${list.board_category}" readonly /> 
+				<input type="text" class="col bg-light" style="border: 2px solid #888;"	value="조회수 : ${list.board_view}" readonly /> 
+				<input type="text" class="col bg-light" style="border: 2px solid #888;" value="작성일 : ${list.board_date}" readonly />
 			</div>
 		</div>
 

@@ -6,9 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body >
 <!-- Footer-->
-        <footer class="py-5 bg-dark">
+        <footer class="py-5 bg-dark mt-auto ">
             <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Made by 한인형/이동욱/방소희/최서진</p></div>
         </footer>
         <!-- Bootstrap core JS-->

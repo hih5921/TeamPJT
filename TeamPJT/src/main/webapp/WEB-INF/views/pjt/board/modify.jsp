@@ -29,6 +29,7 @@
 		<div class="container py-4">
 
 			<!-- p, mb 클래는 마진 관련, bg - 백그라운드, 라운더 - 보더 -->
+			<label class="input-file-button" for="input-file">이미지 첨부<input type="file" id="input-file" style="display:none"/></label>
 			<textarea class="p-5 mb-4 bg-light rounded-3 w-100" placeholder="내용" name=board_content>${list.board_content}</textarea>
 
 
