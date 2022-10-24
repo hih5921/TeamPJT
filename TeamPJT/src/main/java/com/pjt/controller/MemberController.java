@@ -48,19 +48,19 @@ public class MemberController {
 	public String joinForm(MemberVO vo, RedirectAttributes RA) {
 		
 		int result = memberservice.join(vo);
-		
 		if(result==1){
 			RA.addFlashAttribute("msg", "가입성공");
 		}else {
 			RA.addFlashAttribute("msg", "가입실패");
 		}
 		
-		return "redirect:/member/join_result";
+//		return "redirect:/";
+		return "/member/join_ok";
 	}
 	
-	@RequestMapping("join_result")
-	public void join_result() {
-		
+	@RequestMapping("join_ok")
+	public String join_ok() {
+		return "redirect:member/join_ok";
 	}
 	
 	@RequestMapping("/loginForm")

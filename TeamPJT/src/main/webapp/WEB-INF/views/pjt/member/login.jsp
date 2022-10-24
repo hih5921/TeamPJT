@@ -20,18 +20,18 @@
 <tr>
    <td colspan="2" align="center"> <h1 class="h3 mb-3 fw-normal">Login</h1></td> </tr>
    <tr>
-      <td><input type="text" id="floatingInput" placeholder="ID"></td>
+      <td><input type="text" id="floatingInput" name="id" placeholder="ID"></td>
     </tr>
     <tr>
-    <td><input type="password"  id="floatingPassword" placeholder="PW"></td>
+    <td><input type="password"  id="floatingPassword" name="pw" placeholder="PW"></td>
     </tr>
       </table>
       <br>
       <input type="checkbox" value="remember-me"> Remember me
       <br><br>
-    <input type="submit" class="btn-primary" value="login">
+    <input type="button" class="btn-primary" value="login" onclick="location.href='/loginForm'">
     <button class="btn-primary" type="button" onclick="location.href='/member/join'">Join</button>
-    <p class="mt-5 mb-3 text-muted">2022</p>
+<!-- <p class="mt-5 mb-3 text-muted">2022</p>-->
   </form>
   </div>
   

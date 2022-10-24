@@ -7,7 +7,9 @@
  
  
 	<insert id="join" parameterType="com.pjt.member.commend.MemberVO">
-		insert into tbl_user(user_id, user_pw, user_phone, user_address, user_email, user_nickname) values (#{user_id }, #{user_pw}, #{user_phone}, #{user_address}, #{user_email}, #{user_nickname} )
+		insert into tbl_user(user_id, user_pw, user_phone, user_address, user_email, user_nickname) 
+		values(#{user_id}, #{user_pw}, #{user_phone}, #{user_address}, #{user_email}, #{user_nickname} )
+		
 	</insert>
 
 	<select id="login" parameterType="com.pjt.member.commend.MemberVO" resultType="int">
@@ -16,7 +18,7 @@
 		where user_id = #{user_id} and user_pw =#{user_pw}
 	</select>
 	
-	<select id="id_check" resultType="int">
+	<select id="idCheck" resultType="int">
 		select count(*) as result 
 		from tbl_user where user_id = #{user_id}
 	</select>
