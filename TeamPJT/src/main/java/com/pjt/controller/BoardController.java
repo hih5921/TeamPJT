@@ -28,8 +28,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.pjt.command.BoardVO;
 
+import com.pjt.command.BoardVO;
+import com.pjt.command.Criteria;
+import com.pjt.command.PageVO;
 import com.pjt.command.ImgVO;
 import com.pjt.service.BoardService;
 import com.pjt.service.ReplyService;
@@ -39,7 +41,21 @@ import net.coobird.thumbnailator.Thumbnails;
 @Controller
 @RequestMapping("/board/")
 public class BoardController {
+
 	//git 정리
+  
+	@RequestMapping("/list")
+	public String list(Model model, Criteria cri) {
+		ArrayList<BoardVO> list = boardService.getlist(cri);
+				model.addAttribute("board_list", list);
+		
+
+		int total = boardService.getTotal(); 	 
+		model.addAttribute("pageMaker", new PageVO(cri, total));
+		return "pjt/board/list";
+    
+}
+
 	@Autowired
 	BoardService boardService;
 
@@ -205,5 +221,6 @@ public class BoardController {
 		return result;
 		
 	}
+
 
 }
