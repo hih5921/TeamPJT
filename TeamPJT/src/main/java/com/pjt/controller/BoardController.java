@@ -39,7 +39,7 @@ import net.coobird.thumbnailator.Thumbnails;
 @Controller
 @RequestMapping("/board/")
 public class BoardController {
-
+	//git 정리
 	@Autowired
 	BoardService boardService;
 
