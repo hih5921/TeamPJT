@@ -19,7 +19,7 @@ import com.pjt.service.MemberService;
 @RequestMapping("/member")
 public class MemberController {
 
-	//1111
+	//1111 
 	@Autowired
 	private MemberService memberservice;
 	
