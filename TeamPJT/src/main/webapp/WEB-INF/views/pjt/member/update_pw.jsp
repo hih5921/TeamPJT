@@ -7,21 +7,21 @@
 <body>
 	<section>
 		<div align="center">
-			<form name="regform" action="update_member_ok" method="post">
+			<form name="regform" id="regform" action="update_pw_form" method="post">
 				<br><br><br>
 				<h2>My Page</h2><br>
 				<table>
 					<tr>
 						<td>기존 비밀번호</td>
-						<td><input type="password" name="pw" class="form-control"></td>
+						<td><input type="password" name="pw" id="pw" class="form-control"></td>
 					</tr>
 					<tr>
 						<td>변경 비밀번호</td>
-						<td><input type="password" name="newpw" class="form-control"></td>
+						<td><input type="password" name="newpw" id="newpw" class="form-control"></td>
 					</tr>
 					<tr>
 						<td>변경 비밀번호 확인</td>
-						<td><input type="password" name="newpwcheck" class="form-control"></td>
+						<td><input type="password" name="newpwcheck" id="newpwcheck" class="form-control"></td>
 					</tr>
 				</table>
 				<br><br>
@@ -34,5 +34,16 @@
 	
 	</section>
 </body>
+<script type="text/javascript">
+ function check(){
+	 if(document.regform.pw.value != ''){
+		 alert("비밀번호 변경 실패");
+	 }else if(document.regform.newpw.value != document.regform.newpwcheck.value){
+		 alert("비밀번호 변경 실패");
+	 }else if(confirm("변경 하시겠습니까?")){
+			document.regform.submit();
+		}
+ }
+</script>
 <%@include file="../footer.jsp"%>
 </html>
