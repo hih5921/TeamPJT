@@ -27,7 +27,10 @@
 		<div class="container py-4">
 
 			<!-- p, mb 클래는 마진 관련, bg - 백그라운드, 라운더 - 보더 -->
-			<textarea class="p-5 mb-4 bg-light rounded-3 w-100" readonly>${list.board_content}</textarea>
+			<div id="editor" contenteditable="false" class="p-5 mb-4 bg-light rounded-3 w-100" >
+				${list.board_content}
+				
+			</div>
 
 
 

@@ -32,5 +32,9 @@ VALUES(#{board_category},#{board_title},#{board_content},#{user_id},#{board_stre
 		insert into tbl_img(board_num, img_fileName, img_uploadPath, img_uuid) values ((SELECT MAX(board_num) FROM tbl_board), #{img_fileName}, #{img_uploadPath}, #{img_uuid})
 	</insert>
 	
+	<select id="top4" resultType="com.pjt.command.BoardVO">
+		
+	</select>
+	
 </mapper>
 

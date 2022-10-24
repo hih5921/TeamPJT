@@ -56,9 +56,9 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override
-	public void imageEnroll(ImgVO vo) {
+	public List<BoardVO> top4() {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 	
 	

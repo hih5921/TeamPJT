@@ -12,5 +12,7 @@ public interface BoardService {
 	public void modify(BoardVO vo);
 	public List<BoardVO> search(String Board_title);
 	public List<BoardVO> getlist();
-	public void imageEnroll(ImgVO vo);
+	
+	public List<BoardVO> top4();
+	
 }

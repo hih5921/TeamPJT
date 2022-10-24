@@ -21,7 +21,7 @@
 	<!-- Call to Action-->
 	<div class="card text-white bg-secondary my-5 py-4 text-center">
 		<div class="card-body">
-			<p class="text-white m-0">들어갈 내용 미정 (아마 공지류의 내용이 들어갈 예정)</p>
+			<p class="text-white m-0">조회수 Ranking Top4.</p>
 		</div>
 	</div>
 	<!-- Content Row-->
