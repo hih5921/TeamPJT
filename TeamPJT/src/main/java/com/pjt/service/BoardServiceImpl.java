@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.pjt.command.BoardVO;
-import com.pjt.command.Criteria;
 import com.pjt.command.ImgVO;
 import com.pjt.mapper.BoardMapper;
 
@@ -51,15 +50,9 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override
-	public ArrayList<BoardVO> getlist(Criteria cri) {
-		ArrayList<BoardVO>list = bmp.pagingList(cri);
-		return list;
-	}
-	
-	@Override
-	public int getTotal() {
-		int total = bmp.getTotal();
-		return total;
+	public List<BoardVO> getlist() {
+		
+		return bmp.getlist();
 	}
 	
 	@Override

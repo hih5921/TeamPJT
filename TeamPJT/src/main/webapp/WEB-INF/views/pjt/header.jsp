@@ -4,19 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
-.row {
-	margin: 0px auto;
-	width: 100%;
-	text-align : center;
-	
-	
-}
-
-h1 {
-	text-align: center;
-}
-</style>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
