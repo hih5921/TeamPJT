@@ -38,4 +38,13 @@ public class MemberServiceImpl implements MemberService {
 		
 		return result;
 	}
+	
+//	@Override
+//	public int nickCheck(String nickname) {
+//		
+//		int result = mapper.nickCheck(nickname);
+//		System.out.println(result);
+//		
+//		return result;
+//	}
 }
