@@ -43,7 +43,25 @@
 					<textarea class="h-100 p-5 bg-light rounded-3 w-100" readonly>${list.board_weakness}</textarea>
 				</div>
 			</div>
-
+			
+			<br><br>
+			<!-- 추천 -->
+			<div align="center">
+				<c:if test="${sessionScope.loginId == null || sessionScope.loginId eq 'guest'}">
+				<img src="/resources/img/before_like.png" id="likeimg" width="60px" height="60px" "> 
+					${b.like_count} <br><br> 추천 기능은 
+					<a href="/member/login" type="button" id="newLogin" class="btn btn-outline-success">로그인</a>
+					후 사용 가능합니다.
+					</c:if>
+					<c:if test="${sessionScope.loginId != null}">
+						<div>
+					<input type="hidden" id="like_check" value="${like.like_check}">
+					<img class="rounded-circle likeimg" id="likeimg" src="/resources/img/like.png" width="60px" height="60px"> ${b.like_count}
+					</div>
+				</c:if>
+			</div>
+			
+			
 			<br>
 			<div align="center">
 						<button type="button" class="btn btn-secondary" onclick="location.href='modify?board_num=${param.board_num}'">수정</button>
@@ -110,6 +128,44 @@
 					+ "&user_id=" + user_id + "&reply_coment=" + reply_coment
 
 		}
+		
+		$(document).ready(function () {
+			let like_count = document.getElementById('like_count')
+			let likeval = document.getElementById('like_check').value
+			const b_number = '${b.b_number}';
+			const m_id = "${sessionScope.loginId}";
+			const likeimg = document.getElementById("likeimg")
+
+			if (likeval > 0) {
+				likeimg.src = "/resources/img/like.png";
+			}
+			else {
+				likeimg.src = "/resources/img/before_like.png";
+			}
+		    // 좋아요 버튼을 클릭 시 실행되는 코드
+		$(".likeimg").on("click", function () {
+			$.ajax({
+		      url: '/board/like',
+		      type: 'POST',
+		      data: { 'b_number': b_number, 'm_id': m_id },
+		      success: function (data) {
+		          if (data == 1) {
+		              $("#likeimg").attr("src", "/resources/img/like.png");
+		              location.reload();
+		          } else {
+		              $("#likeimg").attr("src", "/resources/img/before_like.png");
+		              location.reload();
+		          }
+		      }, error: function () {
+		          $("#likeimg").attr("src", "/resources/img/like.png");
+		      }
+
+		  });
+
+		  });
+		  });
+		
+		
 	</script>
 </body>
 </html>
