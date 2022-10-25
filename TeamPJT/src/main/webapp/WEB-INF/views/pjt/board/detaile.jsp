@@ -47,16 +47,16 @@
 			<br><br>
 			<!-- 추천 -->
 			<div align="center">
-				<c:if test="${sessionScope.loginId == null || sessionScope.loginId eq 'guest'}">
+				<c:if test="${sessionScope.id == null}">
 				<img src="/resources/img/before_like.png" id="likeimg" width="60px" height="60px" "> 
 					${b.like_count} <br><br> 추천 기능은 
 					<a href="/member/login" type="button" id="newLogin" class="btn btn-outline-success">로그인</a>
 					후 사용 가능합니다.
 					</c:if>
-					<c:if test="${sessionScope.loginId != null}">
+					<c:if test="${sessionScope.id != null}">
 						<div>
 					<input type="hidden" id="like_check" value="${like.like_check}">
-					<img class="rounded-circle likeimg" id="likeimg" src="/resources/img/like.png" width="60px" height="60px"> ${b.like_count}
+					<img  id="likeimg" src="/resources/img/like.png" width="60px" height="60px"> ${b.like_count}
 					</div>
 				</c:if>
 			</div>

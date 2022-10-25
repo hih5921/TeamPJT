@@ -14,7 +14,7 @@ import com.pjt.command.Criteria;
 import com.pjt.command.ImgVO;
 import com.pjt.mapper.BoardMapper;
 
-@Transactional
+
 @Service
 public class BoardServiceImpl implements BoardService{
 
@@ -68,6 +68,12 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardVO> top4() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public int searchCount(String Board_title) {
+		
+		return bmp.searchCount(Board_title);
 	}
 
 	

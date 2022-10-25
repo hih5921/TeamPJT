@@ -18,5 +18,5 @@ public interface BoardService {
 	public ArrayList<BoardVO> getlist(Criteria cri);
 	public int getTotal();		
 	public List<BoardVO> top4();
-
+	public int searchCount(String Board_title);
 }

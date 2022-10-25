@@ -22,6 +22,6 @@ public interface BoardMapper {
 	public ArrayList<BoardVO> pagingList(Criteria cri);
 	public void imageEnroll(ImgVO vo);
 	public List<BoardVO> top4();
-	
+	public int searchCount(String Board_title);
 
 }

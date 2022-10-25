@@ -66,7 +66,7 @@ public class BoardController {
     @PostMapping("/register")
     public String register(BoardVO vo) {
     	boardService.register(vo);
-    	return "pjt/board/list";
+    	return "redirect:/board/list";
     }
     
     @GetMapping("/modify")
@@ -86,23 +86,22 @@ public class BoardController {
     }
     
     @RequestMapping("/search")
-    public String search(String board_title,Model mo) {
+    public String search(String board_title,Model mo , Criteria cri) {
     	List<BoardVO> test = boardService.search(board_title);
     	System.out.println(test+"/"+board_title);
     	mo.addAttribute("board_list",test);
+    	int total = boardService.searchCount(board_title); 	 
+		mo.addAttribute("pageMaker", new PageVO(cri, total));
     	return "pjt/board/list";
     }
+    
 	@RequestMapping("/list")
 	public String list(Model model, Criteria cri) {
 		ArrayList<BoardVO> list = boardService.getlist(cri);
 				model.addAttribute("board_list", list);
-		
-
 		int total = boardService.getTotal(); 	 
 		model.addAttribute("pageMaker", new PageVO(cri, total));
-		
 		return "pjt/board/list";
-    
 }
 	// 등록한 파일 폴더에 저장
 	@PostMapping(value = "uploadFile", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -211,7 +210,6 @@ public class BoardController {
 		}catch (IOException e) {
 			e.printStackTrace();
 		}
-	
 		return result;
 		
 	}
