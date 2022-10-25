@@ -29,9 +29,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.pjt.command.BoardVO;
+
 import com.pjt.command.Criteria;
 import com.pjt.command.ImgVO;
 import com.pjt.command.PageVO;
+
 import com.pjt.service.BoardService;
 import com.pjt.service.ReplyService;
 
@@ -215,3 +217,4 @@ public class BoardController {
 	}
 
 }
+

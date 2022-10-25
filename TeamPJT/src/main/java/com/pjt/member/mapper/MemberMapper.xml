@@ -12,6 +12,7 @@
 		
 	</insert>
 
+
 	<select id="login" parameterType="com.pjt.member.commend.MemberVO" resultType="int">
 		select count(*) as result 
 		from tbl_user 
@@ -22,6 +23,18 @@
 		select count(*) as result 
 		from tbl_user where user_id = #{user_id}
 	</select>
+
+	<update id="update" parameterType="com.pjt.member.commend.MemberVO">
+		update tbl_user set user_phone=#{phone}, user_address=#{address}, user_email=#{email}, user_nickname=#{nick}
+		where user_id=#{id}
+	</update>
 	
+	<update id="updatePW">
+		update tbl_user set user_pw=#{newpw} where user_id=#{id}
+	</update>
+	
+	<delete id="delete">
+		delete from tbl_user where user_id=#{id}
+	</delete>
 
 </mapper>
