@@ -1,6 +1,7 @@
 package com.pjt.command;
 
 import java.sql.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -19,4 +20,5 @@ public class BoardVO {
 	private String user_id;
 	private String board_strength;
 	private String board_weakness;
+	private List<ImgVO> imageList;
 }

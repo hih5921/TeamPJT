@@ -12,29 +12,25 @@
 		<div class="container text-center"
 			style="background-color: graytext; color: white; border-collapse:collapse;">
 			<div class="row" style="height: 40px;">
-				<input type="text" class="col-9 bg-light"
-					style="border: 2px solid #888;" value="제목 : ${list.board_title}"
-					readonly /> <input type="text" class="col-3 bg-light"
-					style="border: 2px solid #888;" value="별점 : ${list.board_score}"
-					readonly />
+				<input type="text" class="col-9 bg-light" style="border: 2px solid #888;" value="제목 : ${list.board_title}" readonly /> 
+								<input type="text" class="col-3 bg-light" style="border: 2px solid #888; color: gold;" 
+				value="<c:forEach var="a" begin="1" end="${list.board_score }">★</c:forEach>"name="board_score" readonly/>
 			</div>
 			<div class="row">
-				<input type="text" class="col bg-light"
-					style="border: 2px solid #888;" value="작성자 : ${list.user_id}"
-					readonly /> <input type="text" class="col bg-light"
-					style="border: 2px solid #888;"
-					value="카테고리 : ${list.board_category}" readonly /> <input
-					type="text" class="col bg-light" style="border: 2px solid #888;"
-					value="조회수 : ${list.board_view}" readonly /> <input type="text"
-					class="col bg-light" style="border: 2px solid #888;"
-					value="작성일 : ${list.board_date}" readonly />
+				<input type="text" class="col bg-light"	style="border: 2px solid #888;" value="작성자 : ${list.user_id}" readonly /> 
+				<input type="text" class="col bg-light" style="border: 2px solid #888;" value="카테고리 : ${list.board_category}" readonly /> 
+				<input type="text" class="col bg-light" style="border: 2px solid #888;"	value="조회수 : ${list.board_view}" readonly /> 
+				<input type="text" class="col bg-light" style="border: 2px solid #888;" value="작성일 : ${list.board_date}" readonly />
 			</div>
 		</div>
 
 		<div class="container py-4">
 
 			<!-- p, mb 클래는 마진 관련, bg - 백그라운드, 라운더 - 보더 -->
-			<textarea class="p-5 mb-4 bg-light rounded-3 w-100" readonly>${list.board_content}</textarea>
+			<div id="editor" contenteditable="false" class="p-5 mb-4 bg-light rounded-3 w-100" >
+				${list.board_content}
+				
+			</div>
 
 
 
@@ -47,7 +43,25 @@
 					<textarea class="h-100 p-5 bg-light rounded-3 w-100" readonly>${list.board_weakness}</textarea>
 				</div>
 			</div>
-
+			
+			<br><br>
+			<!-- 추천 -->
+			<div align="center">
+				<c:if test="${sessionScope.loginId == null || sessionScope.loginId eq 'guest'}">
+				<img src="/resources/img/before_like.png" id="likeimg" width="60px" height="60px" "> 
+					${b.like_count} <br><br> 추천 기능은 
+					<a href="/member/login" type="button" id="newLogin" class="btn btn-outline-success">로그인</a>
+					후 사용 가능합니다.
+					</c:if>
+					<c:if test="${sessionScope.loginId != null}">
+						<div>
+					<input type="hidden" id="like_check" value="${like.like_check}">
+					<img class="rounded-circle likeimg" id="likeimg" src="/resources/img/like.png" width="60px" height="60px"> ${b.like_count}
+					</div>
+				</c:if>
+			</div>
+			
+			
 			<br>
 			<div align="center">
 						<button type="button" class="btn btn-secondary" onclick="location.href='modify?board_num=${param.board_num}'">수정</button>
@@ -114,6 +128,45 @@
 					+ "&user_id=" + user_id + "&reply_coment=" + reply_coment
 
 		}
+		
+		$(document).ready(function () {
+			let like_count = document.getElementById('like_count')
+			let likeval = document.getElementById('like_check').value
+			const b_number = '${b.b_number}';
+			const m_id = "${sessionScope.loginId}";
+			const likeimg = document.getElementById("likeimg")
+
+			if (likeval > 0) {
+				likeimg.src = "/resources/img/like.png";
+			}
+			else {
+				likeimg.src = "/resources/img/before_like.png";
+			}
+		    // 좋아요 버튼을 클릭 시 실행되는 코드
+		    
+		$(".likeimg").on("click", function () {
+			$.ajax({
+		      url: '/board/like',
+		      type: 'POST',
+		      data: { 'b_number': b_number, 'm_id': m_id },
+		      success: function (data) {
+		          if (data == 1) {
+		              $("#likeimg").attr("src", "/resources/img/like.png");
+		              location.reload();
+		          } else {
+		              $("#likeimg").attr("src", "/resources/img/before_like.png");
+		              location.reload();
+		          }
+		      }, error: function () {
+		          $("#likeimg").attr("src", "/resources/img/like.png");
+		      }
+
+		  });
+
+		  });
+		  });
+		
+		
 	</script>
 </body>
 </html>

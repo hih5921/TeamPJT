@@ -9,17 +9,17 @@
 <body>
 	<br>
 	<main>
-	<form action="modify" id="reg" method="post">
+	<form action="modify" id="reg" method="post" onsubmit="hiddenValue();">
 		<div class="container text-center"
 			style="background-color: graytext; color: white;">
 			<div class="row" style="height: 40px;">
 				
-				<input type="text" class="col-9 bg-light" style="border: 2px solid #888;" value="${list.board_title}" name="board_title"/> 
-				<input type="text" class="col-3 bg-light" style="border: 2px solid #888;" value="${list.board_score}" name="board_score"/>
+				<input type="text" class="col-9 bg-light" style="border: 2px solid #888;" value="${list.board_title}" name="board_title" id="board_title"/> 
+				<input type="text" class="col-3 bg-light" style="border: 2px solid #888;" value="${list.board_score}" name="board_score" id="board_score"/>
 			</div>
 			<div class="row">
-				<input type="text" class="col bg-light" style="border: 2px solid #888;" value="${list.user_id}" name="user_id" />
-				<input type="text" class="col bg-light"	style="border: 2px solid #888;"	value="${list.board_category}" name="board_category" /> 
+				<input type="text" class="col bg-light" style="border: 2px solid #888;" value="${list.user_id}" name="user_id" id="user_id"/>
+				<input type="text" class="col bg-light"	style="border: 2px solid #888;"	value="${list.board_category}" name="board_category" id="board_category"/> 
 				<input type="text" class="col bg-light" style="border: 2px solid #888;"	value="${list.board_view}"  readonly/> 
 				<input type="text" class="col bg-light" style="border: 2px solid #888;"	value="${list.board_date}"  readonly/>
 				<input type="hidden" name ="board_num" value="${list.board_num}"/>
@@ -29,17 +29,39 @@
 		<div class="container py-4">
 
 			<!-- p, mb 클래는 마진 관련, bg - 백그라운드, 라운더 - 보더 -->
-			<textarea class="p-5 mb-4 bg-light rounded-3 w-100" placeholder="내용" name=board_content>${list.board_content}</textarea>
+			<label class="input-file-button" for="input-file">이미지 첨부<input type="file" id="input-file" style="display:none"/></label>
+			<div class="editor-menu">
+				<button type="button" id="btn-bold">
+					<b>B</b>
+				</button>
+				<button type="button" id="btn-italic">
+					<i>I</i>
+				</button>
+				<button type="button" id="btn-underline">
+					<u>U</u>
+				</button>
+				<button type="button" id="btn-strike">
+					<s>S</s>
+				</button>
+				<button type="button" id="btn-ordered-list">OL</button>
+				<button type="button" id="btn-unordered-list">UL</button>
+				<label class="input-file-button" for="input-file">이미지 첨부<input
+				type="file" id="input-file" style="display: none" name="uploadFile" /></label>
+			</div>
+			<div id="editor" contenteditable="true" class="p-5 mb-4 bg-light rounded-3 w-100" >
+				${list.board_content}
+			</div>
+			<input type="hidden" name="board_content" value="" >
 
 
 
 			<div class="row align-items-md-stretch">
 				<div class="col-md-6">
-					<textarea class="h-100 p-5 bg-light rounded-3 w-100"  name="board_strength">${list.board_strength}</textarea>
+					<textarea class="h-100 p-5 bg-light rounded-3 w-100"  name="board_strength" id="board_strength">${list.board_strength}</textarea>
 				</div>
 
 				<div class="col-md-6">
-					<textarea class="h-100 p-5 bg-light rounded-3 w-100"  name="board_weakness">${list.board_weakness}</textarea>
+					<textarea class="h-100 p-5 bg-light rounded-3 w-100"  name="board_weakness" id="board_weakness">${list.board_weakness}</textarea>
 				</div>
 			</div>
 

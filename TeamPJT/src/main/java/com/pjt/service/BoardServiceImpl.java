@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.pjt.command.BoardVO;
 import com.pjt.command.Criteria;
+import com.pjt.command.ImgVO;
 import com.pjt.mapper.BoardMapper;
 
 @Service
@@ -47,5 +48,11 @@ public class BoardServiceImpl implements BoardService{
 	public int getTotal() {
 		int total = bmp.getTotal();
 		return total;
+	}
+	
+	@Override
+	public List<BoardVO> top4() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

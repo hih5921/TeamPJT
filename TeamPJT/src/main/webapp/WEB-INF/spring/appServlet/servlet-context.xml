@@ -25,7 +25,7 @@
 	
 	<context:component-scan base-package="com.pjt.controller" />
 	<context:component-scan base-package="com.pjt.service" />
-	
+	<context:component-scan base-package="com.pjt.member.*" />
 	
 	
 	
