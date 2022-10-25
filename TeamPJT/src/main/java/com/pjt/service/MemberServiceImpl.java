@@ -38,4 +38,23 @@ public class MemberServiceImpl implements MemberService {
 		
 		return result;
 	}
+	
+	@Override
+	public int update(MemberVO vo) {
+		int result = mapper.update(vo);
+		
+		return result;
+	}
+	
+	@Override
+	public int updatePW(String newpw,String id) {
+		int result = mapper.updatePW(newpw,id);
+		return result;
+	}
+	
+	@Override
+	public int delete(String id) {
+		int result = mapper.delete(id);
+		return result;
+	}
 }
