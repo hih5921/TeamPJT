@@ -62,7 +62,14 @@
 		</div>
 	</div>
 </div>
-
+<script type="text/javascript">
+			$(document).ready(function(){
+				var msg = '${msg}'
+				if(msg !=''){
+					alert(msg)
+				}
+			});
+		</script>
 
 <%@include file="footer.jsp"%>
 </body>

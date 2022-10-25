@@ -20,6 +20,6 @@ public class BoardVO {
 	private String user_id;
 	private String board_strength;
 	private String board_weakness;
-	
+
 	private List<ImgVO> imageList;
 }

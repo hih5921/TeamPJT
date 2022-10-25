@@ -30,70 +30,80 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.pjt.command.BoardVO;
 
+import com.pjt.command.Criteria;
 import com.pjt.command.ImgVO;
+import com.pjt.command.PageVO;
+
 import com.pjt.service.BoardService;
 import com.pjt.service.ReplyService;
 
 import net.coobird.thumbnailator.Thumbnails;
 
+
 @Controller
 @RequestMapping("/board/")
 public class BoardController {
+ 
+    @Autowired
+    BoardService boardService;
+    
+    @Autowired
+    ReplyService rs;
+ 
 
-	@Autowired
-	BoardService boardService;
-
-	@Autowired
-	ReplyService rs;
-
-	@RequestMapping("/list")
-	public String main(Model mo) {
-		mo.addAttribute("board_list", boardService.getlist());
-		return "pjt/board/list";
-	}
-
-	@RequestMapping("/detaile")
-	public String detaile(int board_num, Model mo) {
-		mo.addAttribute("list", boardService.getDetaile(board_num));
-		mo.addAttribute("reply_list", rs.getList(board_num));
+    @RequestMapping("/detaile")
+	public String detaile(int board_num,Model mo) {
+    	mo.addAttribute("list", boardService.getDetaile(board_num));
+    	mo.addAttribute("reply_list", rs.getList(board_num));
 		return "pjt/board/detaile";
 	}
+    
+    @GetMapping("/register")
+    public String register(){
+    	return "pjt/board/register";
+    }
+    
+    @PostMapping("/register")
+    public String register(BoardVO vo) {
+    	boardService.register(vo);
+    	return "pjt/board/list";
+    }
+    
+    @GetMapping("/modify")
+    public String modify(int board_num,Model mo) {
+    	mo.addAttribute("list", boardService.getDetaile(board_num));
+    	return "pjt/board/modify";
+    }
+    
+    @PostMapping("/modify")
+    public String modify(BoardVO vo,Model mo) {
+    	boardService.modify(vo);
+    	
+    	mo.addAttribute("list", boardService.getDetaile(vo.getBoard_num()));
+    	mo.addAttribute("reply_list", rs.getList(vo.getBoard_num()));
+    	System.out.println(vo.getBoard_num());
+    	return "redirect:/board/detaile?board_num="+vo.getBoard_num();
+    }
+    
+    @RequestMapping("/search")
+    public String search(String board_title,Model mo) {
+    	List<BoardVO> test = boardService.search(board_title);
+    	System.out.println(test+"/"+board_title);
+    	mo.addAttribute("board_list",test);
+    	return "pjt/board/list";
+    }
+	@RequestMapping("/list")
+	public String list(Model model, Criteria cri) {
+		ArrayList<BoardVO> list = boardService.getlist(cri);
+				model.addAttribute("board_list", list);
+		
 
-	@GetMapping("/register")
-	public String register() {
-		return "pjt/board/register";
-	}
-
-	@PostMapping("/register")
-	public String register(BoardVO vo) {
-		boardService.register(vo);
-		return "redirect:/board/list";
-	}
-
-	@GetMapping("/modify")
-	public String modify(int board_num, Model mo) {
-		mo.addAttribute("list", boardService.getDetaile(board_num));
-		return "pjt/board/modify";
-	}
-
-	@PostMapping("/modify")
-	public String modify(BoardVO vo, Model mo) {
-		boardService.modify(vo);
-
-		mo.addAttribute("list", boardService.getDetaile(vo.getBoard_num()));
-		mo.addAttribute("reply_list", rs.getList(vo.getBoard_num()));
-		System.out.println(vo.getBoard_num());
-		return "redirect:/board/detaile?board_num=" + vo.getBoard_num();
-	}
-
-	@RequestMapping("/search")
-	public String search(String board_title, Model mo) {
-		List<BoardVO> test = boardService.search(board_title);
-		System.out.println(test + "/" + board_title);
-		mo.addAttribute("board_list", test);
+		int total = boardService.getTotal(); 	 
+		model.addAttribute("pageMaker", new PageVO(cri, total));
+		
 		return "pjt/board/list";
-	}
-
+    
+}
 	// 등록한 파일 폴더에 저장
 	@PostMapping(value = "uploadFile", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<ImgVO>> uploadFile(MultipartFile uploadFile) {
@@ -207,3 +217,4 @@ public class BoardController {
 	}
 
 }
+

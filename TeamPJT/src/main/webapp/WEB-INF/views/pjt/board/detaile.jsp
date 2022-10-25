@@ -143,7 +143,7 @@
 				likeimg.src = "/resources/img/before_like.png";
 			}
 		    // 좋아요 버튼을 클릭 시 실행되는 코드
-		    
+
 		$(".likeimg").on("click", function () {
 			$.ajax({
 		      url: '/board/like',

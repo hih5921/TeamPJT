@@ -39,6 +39,7 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 	}
 	
+
 	@Override
 	public int update(MemberVO vo) {
 		int result = mapper.update(vo);
@@ -57,4 +58,5 @@ public class MemberServiceImpl implements MemberService {
 		int result = mapper.delete(id);
 		return result;
 	}
+
 }

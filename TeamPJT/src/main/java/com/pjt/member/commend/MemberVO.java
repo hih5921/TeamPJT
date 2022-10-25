@@ -2,64 +2,30 @@ package com.pjt.member.commend;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class MemberVO {
 	
 	
-	private String id;
-	private String pw;
-	private String phone;
-	private String address;
-	private String email;
-	private String nick;
-	private Date regdate;
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	public String getPw() {
-		return pw;
-	}
-	public void setPw(String pw) {
-		this.pw = pw;
-	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getNick() {
-		return nick;
-	}
-	public void setNick(String nick) {
-		this.nick = nick;
-	}
-	public Date getRegdate() {
-		return regdate;
-	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
-	}
+	private String user_id;
+	private String user_pw;
+	private String user_phone;
+	private String user_address;
+	private String user_email;
+	private String user_nickname;
+	private Date user_regdate;
 	
-	@Override
-	public String toString() {
-		return "MemberVO [id=" + id + ", pw=" + pw + ", phone=" + phone + ", address=" + address + ", email=" + email
-				+ ", nick=" + nick + ", regdate=" + regdate + "]";
-	}
+	
+	
+//	@Override
+//	public String toString() {
+//		return "MemberVO [id=" +user_id + ", pw=" +user_pw + ", phone=" +user_phone + ", address=" + user_address + ", email=" + user_email
+//				+ ", nick=" + user_nick + ", regdate=" + user_regdate + "]";
+//	}
 
 	
 }
