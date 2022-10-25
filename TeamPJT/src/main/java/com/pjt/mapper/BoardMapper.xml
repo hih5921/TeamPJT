@@ -24,8 +24,24 @@ VALUES(#{board_category},#{board_title},#{board_content},#{user_id},#{board_stre
 	<select id="getlist" resultType="com.pjt.command.BoardVO">
 		select * from tbl_board
 	</select>
-	
+
+	<!-- 페이징 쿼리 -->
+		<select id="pagingList"
+			resultType="com.pjt.command.BoardVO"
+			parameterType="com.pjt.command.Criteria"
+			>
+			select * from
+			(select rownum as rnum, B.* from tbl_board B
+			where rownum &lt;= #{count_oracle} order by board_num desc)
+			where #{pageStart}&lt;=rnum
+		</select>
+		<select id="getTotal" resultType="int">
+			select count(*) from tbl_board
+		</select>
+		<insert id="imageEnroll">
+
 	<insert id="imageEnroll">
+
 		<selectKey resultType="int" keyProperty="board_num" order="AFTER">
   			SELECT MAX(board_num) FROM tbl_board
   		</selectKey>  	
@@ -35,6 +51,6 @@ VALUES(#{board_category},#{board_title},#{board_content},#{user_id},#{board_stre
 	<select id="top4" resultType="com.pjt.command.BoardVO">
 		
 	</select>
-	
+
 </mapper>
 
