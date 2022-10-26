@@ -13,15 +13,15 @@
 				<table>
 					<tr>
 						<td>기존 비밀번호</td>
-						<td><input type="password" name="user_pw" id="user_pw" class="form-control"></td>
+						<td><input type="password"  id="user_pw" class="form-control"></td>
 					</tr>
 					<tr>
 						<td>변경 비밀번호</td>
-						<td><input type="password" name="newpw" id="newpw" class="form-control"></td>
+						<td><input type="password" name="user_pw" id="newpw" class="form-control"></td>
 					</tr>
 					<tr>
 						<td>변경 비밀번호 확인</td>
-						<td><input type="password" name="newpwcheck" id="newpwcheck" class="form-control"></td>
+						<td><input type="password"  id="newpwcheck" class="form-control"></td>
 					</tr>
 				</table>
 				<br><br>
@@ -36,10 +36,10 @@
 </body>
 <script type="text/javascript">
  function check(){
-	 if($("user_pw").val() != "${vo.user_pw}"){
-		 alert("비밀번호 변경 실패");
-	 }else if($("newpw").val() != $("newpwcheck").val()){
-		 alert("비밀번호 변경 실패");
+	 if($("#user_pw").val() != "${vo.user_pw}"){
+		 alert("기존 패스워드가 일치하지 않습니다.");
+	 }else if($("#newpw").val() != $("#newpwcheck").val()){
+		 alert("새로운 비밀번호가 일치하지 않습니다.");
 	 }else if(confirm("변경 하시겠습니까?")){
 			document.regform.submit();
 		}
