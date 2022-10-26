@@ -90,9 +90,9 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override
-	public int reccommendCount(int board_num) {
+	public int recommendCount(int board_num) {
 		// TODO Auto-generated method stub
-		return bmp.reccommendCount(board_num);
+		return bmp.recommendCount(board_num);
 	}
 	
 }
