@@ -21,5 +21,5 @@ public interface BoardService {
 	public int searchCount(String Board_title);
 	public void recommend_Merge(RecommendVO vo);
 	public String getRecommend(RecommendVO vo);
-	public int reccommendCount(int board_num);
+	public int recommendCount(int board_num);
 }

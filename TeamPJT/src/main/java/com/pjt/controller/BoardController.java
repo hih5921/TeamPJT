@@ -59,7 +59,7 @@ public class BoardController {
 	public String detaile(int board_num,Model mo, HttpSession session){
     	mo.addAttribute("list", boardService.getDetaile(board_num));
     	mo.addAttribute("reply_list", rs.getList(board_num));
-    	mo.addAttribute("count", boardService.reccommendCount(board_num));
+    	mo.addAttribute("count", boardService.recommendCount(board_num));
     	
     	String id = (String)session.getAttribute("id");
     	if(id!=null) {

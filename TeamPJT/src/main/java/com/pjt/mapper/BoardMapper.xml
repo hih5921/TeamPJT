@@ -82,8 +82,8 @@ VALUES(#{board_category},#{board_title},#{board_content},#{user_id},#{board_stre
 		select recommend_check from tbl_recommend where board_num=#{board_num} and user_id=#{user_id}
 	</select>
 	
-	<select id="reccommendCount" resultType="int">
-		select count(*) from tbl_recommend where board_num=#{board_num}
+	<select id="recommendCount" resultType="int">
+		select count(*) from tbl_recommend where board_num=#{board_num} and recommend_check=1
 	</select>
 	
 
