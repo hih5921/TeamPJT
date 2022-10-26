@@ -16,7 +16,7 @@
 				<input type="text" class="col-3 bg-light" style="border: 2px solid #888;" placeholder="별점(1~5)" name="board_score" id="board_score"/>
 			</div>
 			<div class="row">
-				<input type="text" class="col bg-light"	style="border: 2px solid #888;" placeholder="작성자" name="user_id" id="user_id"/>
+				<input type="text" class="col bg-light"	style="border: 2px solid #888;" placeholder="작성자" name="user_id" id="user_id" value="${sessionScope.id}" readonly/>
 				<input type="text" class="col bg-light"	style="border: 2px solid #888;" placeholder="카테고리"	name="board_category" id="board_category"/> <input type="text" class="col bg-light" style="border: 2px solid #888;" placeholder="조회수" readonly /> 
 				<input type="text" class="col bg-light" style="border: 2px solid #888;"	placeholder="작성일" readonly />
 			</div>
@@ -93,6 +93,56 @@
 				+ "&user_id=" + user_id + "&reply_coment=" + reply_coment
 	}
 </script>
+<script type="text/javascript">
+
+    	// 에디터 버튼     
+        const editor = document.getElementById('editor');
+        const btnBold = document.getElementById('btn-bold');
+        const btnItalic = document.getElementById('btn-italic');
+        const btnUnderline = document.getElementById('btn-underline');
+        const btnStrike = document.getElementById('btn-strike');
+        const btnOrderedList = document.getElementById('btn-ordered-list');
+        const btnUnorderedList = document.getElementById('btn-unordered-list');
+
+        btnBold.addEventListener('click', function () {
+            setStyle('bold');
+        });
+
+        btnItalic.addEventListener('click', function () {
+            setStyle('italic');
+        });
+
+        btnUnderline.addEventListener('click', function () {
+            setStyle('underline');
+        });
+
+        btnStrike.addEventListener('click', function () {
+            setStyle('strikeThrough')
+        });
+
+        btnOrderedList.addEventListener('click', function () {
+            setStyle('insertOrderedList');
+        });
+
+        btnUnorderedList.addEventListener('click', function () {
+            setStyle('insertUnorderedList');
+        });
+
+        function setStyle(style) {
+            document.execCommand(style);
+            focusEditor();
+        }
+
+        // 버튼 클릭 시 에디터가 포커스를 잃기 때문에 다시 에디터에 포커스를 해줌
+        function focusEditor() {
+            editor.focus({preventScroll: true});
+        }
+        
+
+        
+
+       
+    </script>
 
 </body>
 </html>

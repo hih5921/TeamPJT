@@ -4,6 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Hahmlet:wght@400;500&display=swap" rel="stylesheet">
+<style>
+	*{font-family: 'Black Han Sans', sans-serif; font-family: 'Hahmlet', serif;}
+</style>
 <style type="text/css">
 .row {
 	margin: 0px auto;

@@ -21,7 +21,7 @@
 	<!-- Call to Action-->
 	<div class="card text-white bg-secondary my-5 py-4 text-center">
 		<div class="card-body">
-			<p class="text-white m-0">조회수 Ranking Top4.</p>
+			<h1 class="text-white m-0">조회수 Ranking Top4.</h1>
 		</div>
 	</div>
 	<!-- Content Row-->

@@ -12,6 +12,7 @@ import com.pjt.command.BoardVO;
 import com.pjt.command.Criteria;
 
 import com.pjt.command.ImgVO;
+import com.pjt.command.RecommendVO;
 import com.pjt.mapper.BoardMapper;
 
 
@@ -76,5 +77,22 @@ public class BoardServiceImpl implements BoardService{
 		return bmp.searchCount(Board_title);
 	}
 
+	@Override
+	public void recommend_Merge(RecommendVO vo) {
+		bmp.recommend_Merge(vo);
+		
+	}
+	
+	@Override
+	public String getRecommend(RecommendVO vo) {
+		
+		return bmp.getRecommend(vo);
+	}
+	
+	@Override
+	public int reccommendCount(int board_num) {
+		// TODO Auto-generated method stub
+		return bmp.reccommendCount(board_num);
+	}
 	
 }

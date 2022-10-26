@@ -3,13 +3,14 @@ package com.pjt.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import org.apache.ibatis.annotations.Param;
 
 import com.pjt.command.BoardVO;
 
 import com.pjt.command.Criteria;
 
 import com.pjt.command.ImgVO;
+import com.pjt.command.RecommendVO;
 
 public interface BoardMapper {
 	public BoardVO getDetaile(int board_num);
@@ -23,5 +24,8 @@ public interface BoardMapper {
 	public void imageEnroll(ImgVO vo);
 	public List<BoardVO> top4();
 	public int searchCount(String Board_title);
+	public void recommend_Merge(RecommendVO vo); 
+	public String getRecommend(RecommendVO vo);
+	public int reccommendCount(int board_num);
 
 }
