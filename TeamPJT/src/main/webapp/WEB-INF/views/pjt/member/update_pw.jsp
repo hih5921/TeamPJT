@@ -13,7 +13,7 @@
 				<table>
 					<tr>
 						<td>기존 비밀번호</td>
-						<td><input type="password" name="pw" id="pw" class="form-control"></td>
+						<td><input type="password" name="user_pw" id="user_pw" class="form-control"></td>
 					</tr>
 					<tr>
 						<td>변경 비밀번호</td>
@@ -36,9 +36,9 @@
 </body>
 <script type="text/javascript">
  function check(){
-	 if(document.regform.pw.value != ''){
+	 if($("user_pw").val() != "${vo.user_pw}"){
 		 alert("비밀번호 변경 실패");
-	 }else if(document.regform.newpw.value != document.regform.newpwcheck.value){
+	 }else if($("newpw").val() != $("newpwcheck").val()){
 		 alert("비밀번호 변경 실패");
 	 }else if(confirm("변경 하시겠습니까?")){
 			document.regform.submit();

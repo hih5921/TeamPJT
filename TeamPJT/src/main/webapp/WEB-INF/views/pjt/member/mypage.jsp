@@ -16,8 +16,8 @@
 			  	<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
 			</svg>
 			<br><br>
-				<h3>Nickname님 (user_num)</h3>
-				<h4>가입날짜 : 2022-10-09</h4>
+				<h3>${vo.user_nickname}님</h3>
+				<h4>가입날짜 : ${vo.user_regdate}</h4>
 			<br>
 				<input type="button" value="내 정보 변경" class="btn btn-dark" onclick="location.href='update_member'">
 				<input type="button" value="비밀번호 변경" class="btn btn-secondary" onclick="location.href='update_pw'">

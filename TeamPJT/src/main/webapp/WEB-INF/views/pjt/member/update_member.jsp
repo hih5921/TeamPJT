@@ -14,24 +14,24 @@
 					<tr>
 					<!-- 세션받아서 value값 채우기 -->
 						<td>ID</td>
-						<td><input type="text" name="id" id="id" class="form-control" readonly value="${vo.id}"></td>
+						<td><input type="text" name="id" id="user_id" class="form-control" readonly value="${vo.user_id}"></td>
 					</tr>
 					
 					<tr>
 						<td>PHONE</td>
-						<td><input type="text" name="phone" id="phone" value="${vo.phone}" class="form-control"></td>
+						<td><input type="text" name="phone" id="user_phone" value="${vo.user_phone}" class="form-control"></td>
 					</tr>
 					<tr>
 						<td>ADDRESS</td>
-						<td><input type="email" name="address" id="address" value="${vo.address}" class="form-control"></td>
+						<td><input type="email" name="address" id="user_address" value="${vo.user_address}" class="form-control"></td>
 					</tr>
 					<tr>
 						<td>EMAIL</td>
-						<td><input type="text" name="email" id="email" value="${vo.email}" class="form-control"></td>
+						<td><input type="text" name="email" id="user_email" value="${vo.user_email}" class="form-control"></td>
 					</tr>
 					<tr>
 						<td>NICKNAME </td>
-						<td><input type="text" name="nick" id="nick" value="${vo.nick}" class="form-control"></td>
+						<td><input type="text" name="nickname" id="user_nickname" value="${vo.user_nickname}" class="form-control"></td>
 					</tr>
 				</table>
 				<br><br>
@@ -45,13 +45,13 @@
 
 	<script type="text/javascript">
 		function updateCheck() {			
-			if(document.regform.phone.value == ''){
+			if(document.regform.user_phone.value == ''){
 				alert("전화번호를 입력해 주세요");
-			}else if (document.regform.address.value == ''){
+			}else if (document.regform.user_address.value == ''){
 				alert("주소를 입력해 주세요")
-			}else if (document.regform.email.value == ''){
+			}else if (document.regform.user_email.value == ''){
 				alert("이메일을 입력해 주세요")
-			}else if (document.regform.nick.value == ''){
+			}else if (document.regform.user_nickname.value == ''){
 				alert("닉네임을 입력해 주세요")
 			}else if(confirm("수정 하시겠습니까?")){
 				document.regform.submit();
