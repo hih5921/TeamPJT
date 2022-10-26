@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -99,26 +100,37 @@ public class MemberController {
 	
 	//마이페이지
 	@RequestMapping("/mypage")
-	public String mypage() {
+	public String mypage(Model model,HttpSession session) {
+		String id = (String) session.getAttribute("user_id");
+		MemberVO vo = memberservice.select(id);
+		model.addAttribute("vo", vo);
 		return "/pjt/member/mypage";
 	}
 	
 	//내 정보 변경
 	@RequestMapping("/update_member")
-	public String update_member(HttpSession session) {
-		// MemberVO vo = (MemberVO)session.getAttribute("vo");
+	public String update_member(Model model,HttpSession session) {
+		String id = (String) session.getAttribute("user_id");
+		MemberVO vo = memberservice.select(id);
+		model.addAttribute("vo", vo);
 		return "/pjt/member/update_member";
 	}
 	
 	//비밀번호 변경
 	@RequestMapping("/update_pw")
-	public String update_pw() {
+	public String update_pw(Model model,HttpSession session) {
+		String id = (String) session.getAttribute("user_id");
+		MemberVO vo = memberservice.select(id);
+		model.addAttribute("vo", vo);
 		return "/pjt/member/update_pw";
 	}
 	
 	//회원탈퇴
 	@RequestMapping("/delete")
-	public String delete() {
+	public String delete(Model model,HttpSession session) {
+		String id = (String) session.getAttribute("user_id");
+		MemberVO vo = memberservice.select(id);
+		model.addAttribute("vo", vo);
 		return "/pjt/member/delete";
 	}
 	
@@ -152,6 +164,7 @@ public class MemberController {
 		int result = memberservice.delete(id);
 		
 		if(result==1) {
+			session.invalidate();
 			RA.addFlashAttribute("msg", "회원탈퇴 완료");
 		}else {
 			RA.addFlashAttribute("msg","회원탈퇴 실패");

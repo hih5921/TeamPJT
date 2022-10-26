@@ -28,10 +28,10 @@
 </body>
 <script type="text/javascript">
 function Check(){
-	 if(document.regform.pwcheck.value != ''){
+	 if($("pwcheck").val() != "${vo.user_pw}"){
 		 alert("비밀번호 확인 요청");
 	 }else if(confirm("탈퇴 하시겠습니까?")){
-		 document.regform.submit();
+		 $("#regform").submit();
 		}
 }
 </script>

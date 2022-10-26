@@ -58,5 +58,11 @@ public class MemberServiceImpl implements MemberService {
 		int result = mapper.delete(id);
 		return result;
 	}
+	
+	@Override
+	public MemberVO select(String id) {
+		MemberVO vo = mapper.select(id);
+		return vo;
+	}
 
 }
