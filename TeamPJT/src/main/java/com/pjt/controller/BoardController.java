@@ -16,6 +16,9 @@ import java.util.UUID;
 
 import javax.imageio.ImageIO;
 import javax.naming.spi.DirStateFactory.Result;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,7 +60,38 @@ public class BoardController {
  
 
     @RequestMapping("/detaile")
-	public String detaile(int board_num,Model mo, HttpSession session){
+	public String detaile(String cookie,int board_num,Model mo, HttpSession session, HttpServletRequest request,HttpServletResponse response){
+    	//조회수
+    	Cookie oldCookie = null;
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie1 : cookies) {
+                if (cookie1.getName().equals("postView")) {
+                    oldCookie = cookie1;
+                }
+            }
+        }
+
+        if (oldCookie != null) {
+            if (!oldCookie.getValue().contains("[" + board_num + "]")) {
+            	boardService.boardViewCount(board_num);
+                oldCookie.setValue(oldCookie.getValue() + "_[" + board_num + "]");
+                oldCookie.setPath("/");
+                oldCookie.setMaxAge(60 * 60 * 24);
+                response.addCookie(oldCookie);
+            }
+        } else {
+        	boardService.boardViewCount(board_num);
+            Cookie newCookie = new Cookie("postView","[" + board_num + "]");
+            newCookie.setPath("/");
+            newCookie.setMaxAge(60 * 60 * 24);
+            response.addCookie(newCookie);
+        }
+    	
+    	
+    	
+    	
+    	
     	mo.addAttribute("list", boardService.getDetaile(board_num));
     	mo.addAttribute("reply_list", rs.getList(board_num));
     	mo.addAttribute("count", boardService.recommendCount(board_num));

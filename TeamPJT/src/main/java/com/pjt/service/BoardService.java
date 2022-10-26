@@ -22,4 +22,5 @@ public interface BoardService {
 	public void recommend_Merge(RecommendVO vo);
 	public String getRecommend(RecommendVO vo);
 	public int recommendCount(int board_num);
+	public void boardViewCount(int board_num);
 }

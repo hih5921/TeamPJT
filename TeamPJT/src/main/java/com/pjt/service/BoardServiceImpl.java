@@ -95,4 +95,10 @@ public class BoardServiceImpl implements BoardService{
 		return bmp.recommendCount(board_num);
 	}
 	
+	@Override
+	public void boardViewCount(int board_num) {
+		bmp.boardViewCount(board_num);
+		
+	}
+	
 }
