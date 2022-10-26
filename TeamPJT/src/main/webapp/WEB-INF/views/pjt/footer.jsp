@@ -33,25 +33,7 @@
     		$('input[name=board_content]').attr('value',innerText);
     	}
     	
-    	function check() {
-			if($("#board_title").val()==""){
-				alert("제목을 입력해주세요");
-			}else if($("#board_score").val()==""){
-				alert("별점을 입력해주세요");
-			}else if($("#board_score").val()>5){
-				alert("별점은 1~5사이로 입력해주세요");
-			}else if($("#board_category").val()==""){
-				alert("카테고리를 입력해주세요");
-			}else if(document.getElementById("editor").innerHTML==""){
-				alert("내용을 입력해주세요");
-			}else if($("#board_strength").val()==""){
-				alert("장점을 입력해주세요");
-			}else if($("#board_weakness").val()==""){
-				alert("단점을 입력해주세요");
-			}else{
-				$("#reg").submit();
-			}
-		}
+    	
 
     	/* 이미지 업로드 */
     	$("input[type='file']").on("change", function(e) {

@@ -27,7 +27,6 @@ import com.pjt.service.MemberService;
 @RequestMapping("/member")
 public class MemberController {
 
-	//1111 
 	@Autowired
 	private MemberService memberservice;
 	
@@ -101,7 +100,7 @@ public class MemberController {
 	//마이페이지
 	@RequestMapping("/mypage")
 	public String mypage(Model model,HttpSession session) {
-		String id = (String) session.getAttribute("user_id");
+		String id = (String) session.getAttribute("id");
 		MemberVO vo = memberservice.select(id);
 		model.addAttribute("vo", vo);
 		return "/pjt/member/mypage";
@@ -110,7 +109,7 @@ public class MemberController {
 	//내 정보 변경
 	@RequestMapping("/update_member")
 	public String update_member(Model model,HttpSession session) {
-		String id = (String) session.getAttribute("user_id");
+		String id = (String) session.getAttribute("id");
 		MemberVO vo = memberservice.select(id);
 		model.addAttribute("vo", vo);
 		return "/pjt/member/update_member";
@@ -119,7 +118,7 @@ public class MemberController {
 	//비밀번호 변경
 	@RequestMapping("/update_pw")
 	public String update_pw(Model model,HttpSession session) {
-		String id = (String) session.getAttribute("user_id");
+		String id = (String) session.getAttribute("id");
 		MemberVO vo = memberservice.select(id);
 		model.addAttribute("vo", vo);
 		return "/pjt/member/update_pw";
@@ -128,7 +127,7 @@ public class MemberController {
 	//회원탈퇴
 	@RequestMapping("/delete")
 	public String delete(Model model,HttpSession session) {
-		String id = (String) session.getAttribute("user_id");
+		String id = (String) session.getAttribute("id");
 		MemberVO vo = memberservice.select(id);
 		model.addAttribute("vo", vo);
 		return "/pjt/member/delete";
@@ -146,9 +145,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/update_pw_form")
-	public String update_pw_form(@RequestParam("newpw") String newpw,RedirectAttributes RA,HttpSession session) {
+	public String update_pw_form(@RequestParam("user_pw") String user_pw,RedirectAttributes RA,HttpSession session) {
 		String id = (String)session.getAttribute("id");
-		int result = memberservice.updatePW(newpw,id);
+		System.out.println(user_pw);
+		int result = memberservice.updatePW(user_pw,id);
 		if(result==1) {
 			RA.addFlashAttribute("msg", "비밀번호 변경 완료");
 		}else {

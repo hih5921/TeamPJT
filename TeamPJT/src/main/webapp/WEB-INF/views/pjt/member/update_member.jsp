@@ -14,24 +14,24 @@
 					<tr>
 					<!-- 세션받아서 value값 채우기 -->
 						<td>ID</td>
-						<td><input type="text" name="id" id="user_id" class="form-control" readonly value="${vo.user_id}"></td>
+						<td><input type="text" name="user_id" id="user_id" class="form-control" readonly value="${vo.user_id}"></td>
 					</tr>
 					
 					<tr>
 						<td>PHONE</td>
-						<td><input type="text" name="phone" id="user_phone" value="${vo.user_phone}" class="form-control"></td>
+						<td><input type="text" name="user_phone" id="user_phone" value="${vo.user_phone}" class="form-control"></td>
 					</tr>
 					<tr>
 						<td>ADDRESS</td>
-						<td><input type="email" name="address" id="user_address" value="${vo.user_address}" class="form-control"></td>
+						<td><input type="email" name="user_address" id="user_address" value="${vo.user_address}" class="form-control"></td>
 					</tr>
 					<tr>
 						<td>EMAIL</td>
-						<td><input type="text" name="email" id="user_email" value="${vo.user_email}" class="form-control"></td>
+						<td><input type="text" name="user_email" id="user_email" value="${vo.user_email}" class="form-control"></td>
 					</tr>
 					<tr>
 						<td>NICKNAME </td>
-						<td><input type="text" name="nickname" id="user_nickname" value="${vo.user_nickname}" class="form-control"></td>
+						<td><input type="text" name="user_nickname" id="user_nickname" value="${vo.user_nickname}" class="form-control"></td>
 					</tr>
 				</table>
 				<br><br>
