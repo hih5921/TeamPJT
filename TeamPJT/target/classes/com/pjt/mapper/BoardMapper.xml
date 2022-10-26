@@ -38,7 +38,9 @@ VALUES(#{board_category},#{board_title},#{board_content},#{user_id},#{board_stre
 		<select id="getTotal" resultType="int">
 			select count(*) from tbl_board
 		</select>
-		<insert id="imageEnroll">
+		
+
+	<insert id="imageEnroll">
 
 		<selectKey resultType="int" keyProperty="board_num" order="AFTER">
   			SELECT MAX(board_num) FROM tbl_board

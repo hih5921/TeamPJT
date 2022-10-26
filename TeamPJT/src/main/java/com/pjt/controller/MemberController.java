@@ -2,6 +2,7 @@ package com.pjt.controller;
 
 import java.util.logging.Logger;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,9 +53,11 @@ public class MemberController {
 	public String joinForm(MemberVO vo, RedirectAttributes RA) {
 		
 		int result = memberservice.join(vo);
-		System.out.println(result);
+		
+		
 		if(result==1){
 			RA.addFlashAttribute("msg", "가입성공");
+					
 		}else {
 			RA.addFlashAttribute("msg", "가입실패");
 		}
@@ -78,7 +81,7 @@ public class MemberController {
 		System.out.println(vo.getUser_id()+"/"+result);
 		System.out.println(result);
 		if(result ==1) {
-			session.setAttribute("user_id", vo.getUser_id());
+			session.setAttribute("id", vo.getUser_id());	
 			RA.addFlashAttribute("msg", "환영합니다.");
 			return "redirect:/pjt/main";
 		}else {
@@ -91,7 +94,7 @@ public class MemberController {
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "redirect:/main";
+		return "redirect:/pjt/main";
 	}
 	
 	//마이페이지
@@ -132,7 +135,7 @@ public class MemberController {
 	
 	@RequestMapping("/update_pw_form")
 	public String update_pw_form(@RequestParam("newpw") String newpw,RedirectAttributes RA,HttpSession session) {
-		String id = (String)session.getAttribute("user_id");
+		String id = (String)session.getAttribute("id");
 		int result = memberservice.updatePW(newpw,id);
 		if(result==1) {
 			RA.addFlashAttribute("msg", "비밀번호 변경 완료");
@@ -145,7 +148,7 @@ public class MemberController {
 	@RequestMapping("delete_form")
 	public String delete_form(RedirectAttributes RA,HttpSession session) {
 		// 세션으로 아이디 값 불러오기
-		String id = (String)session.getAttribute("user_id");
+		String id = (String)session.getAttribute("id");
 		int result = memberservice.delete(id);
 		
 		if(result==1) {

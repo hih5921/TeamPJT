@@ -122,6 +122,7 @@ $RECYCLE.BIN/
 #pom.properties
 *.properties
 TeamPJT/target/m2e-wtp/web-resources/META-INF/maven/com.pjt/test/pom.properties
-
+*/target/*
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,eclipse,java
+/TeamPJT/

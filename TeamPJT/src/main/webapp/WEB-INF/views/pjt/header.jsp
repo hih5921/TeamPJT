@@ -4,6 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Hahmlet:wght@400;500&display=swap" rel="stylesheet">
+<style>
+	*{font-family: 'Black Han Sans', sans-serif; font-family: 'Hahmlet', serif;}
+</style>
 <style type="text/css">
 .row {
 	margin: 0px auto;
@@ -86,7 +93,7 @@ h1 {
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     	<li class="nav-item"><input type="text" name="title" id="title" style="padding-left: 10px; padding-top: 10px"  ></li>
                     	<li class="nav-item"><button type="button" class="btn btn-secondary" onclick="search()">검색</button></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/pjt/main" name="title">메인</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/pjt/main">메인</a></li>
                         <li class="nav-item"><a class="nav-link" href="/board/list">추천 리뷰</a></li>
                         <c:choose >
                         	<c:when test="${empty id}">                      

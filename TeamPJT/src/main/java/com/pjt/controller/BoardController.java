@@ -14,7 +14,11 @@ import java.util.List;
 
 import java.util.UUID;
 
-import javax.imageio.ImageIO;import org.springframework.beans.factory.annotation.Autowired;
+import javax.imageio.ImageIO;
+import javax.naming.spi.DirStateFactory.Result;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -33,7 +37,7 @@ import com.pjt.command.BoardVO;
 import com.pjt.command.Criteria;
 import com.pjt.command.ImgVO;
 import com.pjt.command.PageVO;
-
+import com.pjt.command.RecommendVO;
 import com.pjt.service.BoardService;
 import com.pjt.service.ReplyService;
 
@@ -52,9 +56,18 @@ public class BoardController {
  
 
     @RequestMapping("/detaile")
-	public String detaile(int board_num,Model mo) {
+	public String detaile(int board_num,Model mo, HttpSession session){
     	mo.addAttribute("list", boardService.getDetaile(board_num));
     	mo.addAttribute("reply_list", rs.getList(board_num));
+    	mo.addAttribute("count", boardService.reccommendCount(board_num));
+    	
+    	String id = (String)session.getAttribute("id");
+    	if(id!=null) {
+    		RecommendVO vo = new RecommendVO();
+    		vo.setBoard_num(board_num);
+    		vo.setUser_id(id);
+    		mo.addAttribute("recommend_check",boardService.getRecommend(vo));
+    	}
 		return "pjt/board/detaile";
 	}
     
@@ -66,7 +79,7 @@ public class BoardController {
     @PostMapping("/register")
     public String register(BoardVO vo) {
     	boardService.register(vo);
-    	return "pjt/board/list";
+    	return "redirect:/board/list";
     }
     
     @GetMapping("/modify")
@@ -86,23 +99,21 @@ public class BoardController {
     }
     
     @RequestMapping("/search")
-    public String search(String board_title,Model mo) {
+    public String search(String board_title,Model mo , Criteria cri) {
     	List<BoardVO> test = boardService.search(board_title);
-    	System.out.println(test+"/"+board_title);
     	mo.addAttribute("board_list",test);
+    	int total = boardService.searchCount(board_title); 	 
+		mo.addAttribute("pageMaker", new PageVO(cri, total));
     	return "pjt/board/list";
     }
+    
 	@RequestMapping("/list")
 	public String list(Model model, Criteria cri) {
 		ArrayList<BoardVO> list = boardService.getlist(cri);
 				model.addAttribute("board_list", list);
-		
-
 		int total = boardService.getTotal(); 	 
 		model.addAttribute("pageMaker", new PageVO(cri, total));
-		
 		return "pjt/board/list";
-    
 }
 	// 등록한 파일 폴더에 저장
 	@PostMapping(value = "uploadFile", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -165,7 +176,6 @@ public class BoardController {
 			// 썸네일 생성
 			
 			File thumbnailFile = new File(uploadPath, "s_" + uploadFileName);
-			System.out.println(thumbnailFile);
 			BufferedImage bo_image = ImageIO.read(saveFile);
 
 			// 이미지 비율
@@ -198,23 +208,29 @@ public class BoardController {
 	public ResponseEntity<byte[]> getImage(@RequestParam("filename") String filename){
 	
 	File file = new File("c:\\upload\\" + filename);	
-	System.out.println(file);
 	ResponseEntity<byte[]> result = null;
 		try {
 			
 			HttpHeaders header = new HttpHeaders();
 
 			header.add("Content-type", Files.probeContentType(file.toPath()));
-			System.out.println("실행3");
 			result = new ResponseEntity<>(FileCopyUtils.copyToByteArray(file), header, HttpStatus.OK);
-			System.out.println("실행4");
-		}catch (IOException e) {
+			}catch (IOException e) {
 			e.printStackTrace();
 		}
-	
 		return result;
 		
 	}
-
+	
+	@PostMapping("/recommend")
+	public ResponseEntity<String> recommend(RecommendVO vo){
+		ResponseEntity<String> result = null;
+		if(vo.getRecommend_check()==null) {vo.setRecommend_check("0");}
+		System.out.println("id"+vo.getUser_id()+"/num"+vo.getBoard_num()+"/reco"+vo.getRecommend_check());		
+		boardService.recommend_Merge(vo);
+		result = new ResponseEntity<String>(boardService.getRecommend(vo),HttpStatus.OK);
+		return result;  
+	}
+	
 }
 

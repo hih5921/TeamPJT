@@ -43,25 +43,28 @@
 					<textarea class="h-100 p-5 bg-light rounded-3 w-100" readonly>${list.board_weakness}</textarea>
 				</div>
 			</div>
-			
-			<br><br>
+
+			<br> <br>
 			<!-- 추천 -->
 			<div align="center">
-				<c:if test="${sessionScope.loginId == null || sessionScope.loginId eq 'guest'}">
-				<img src="/resources/img/before_like.png" id="likeimg" width="60px" height="60px" "> 
-					${b.like_count} <br><br> 추천 기능은 
-					<a href="/member/login" type="button" id="newLogin" class="btn btn-outline-success">로그인</a>
+				<c:if test="${sessionScope.id == null}">
+					<img src="/resources/img/before_like.png" id="likeimg" width="60px"
+						height="60px" name="likeimg"> 
+					&nbsp;&nbsp;&nbsp;추천:${count}<br>
+					<br> 추천 기능은 
+					<a href="/member/login" type="button" id="newLogin"
+						class="btn btn-outline-success">로그인</a>
 					후 사용 가능합니다.
-					</c:if>
-					<c:if test="${sessionScope.loginId != null}">
-						<div>
-					<input type="hidden" id="like_check" value="${like.like_check}">
-					<img class="rounded-circle likeimg" id="likeimg" src="/resources/img/like.png" width="60px" height="60px"> ${b.like_count}
+				</c:if>
+				<c:if test="${sessionScope.id != null}">
+					<div>
+						<input type="hidden" id="recommend_check" value="${recommend_check}"> 
+						<img id="likeimg" src="/resources/img/before_like.png" width="60px" height="60px" name="likeimg">&nbsp;&nbsp;&nbsp;추천:${count} 
 					</div>
 				</c:if>
 			</div>
-			
-			
+
+
 			<br>
 			<div align="center">
 						<button type="button" class="btn btn-secondary" onclick="location.href='modify?board_num=${param.board_num}'">수정</button>
@@ -100,13 +103,10 @@
 							placeholder="댓글 입력...">
 					</div>
 					<div class="form-group col-sm-2">
-						<input class="form-control input-sm" id="user_id" type="text"
-							placeholder="작성자">
+						<input class="form-control input-sm" id="user_id" type="text" value="${sessionScope.id}" readonly >
 					</div>
 					<div class="form-group col-sm-2">
-						<button type="button"
-							class="btn btn-s btn-secondary btn-block replyAddBtn"
-							onclick="addReply()">
+						<button type="button" class="btn btn-s btn-secondary btn-block replyAddBtn" onclick="addReply()">
 							<i class="fa fa-save"></i> 저장
 						</button>
 					</div>
@@ -118,8 +118,9 @@
 
 
 
-
+	
 	<script type="text/javascript">
+	<!-- 댓글 -->
 		function addReply() {
 			var user_id = $('#user_id').val()
 			var reply_coment = $('#reply_coment').val()
@@ -129,38 +130,40 @@
 
 		}
 		
+		<!--추천-->
 		$(document).ready(function () {
-			let like_count = document.getElementById('like_count')
-			let likeval = document.getElementById('like_check').value
-			const b_number = '${b.b_number}';
-			const m_id = "${sessionScope.loginId}";
+			const urlParams = new URL(location.href).searchParams;
+			
+			let check = document.getElementById('recommend_check').value
+			const user_id = "${sessionScope.id}";
+			const board_num = urlParams.get('board_num');
 			const likeimg = document.getElementById("likeimg")
-
-			if (likeval > 0) {
+			
+			if ( check== '1') {
 				likeimg.src = "/resources/img/like.png";
 			}
 			else {
 				likeimg.src = "/resources/img/before_like.png";
 			}
-		    // 좋아요 버튼을 클릭 시 실행되는 코드
-
-		$(".likeimg").on("click", function () {
+		   
+		// 좋아요 버튼을 클릭 시 실행되는 코드	
+		$(likeimg).on("click", function () {
 			$.ajax({
-		      url: '/board/like',
+		      url: '/board/recommend',
 		      type: 'POST',
-		      data: { 'b_number': b_number, 'm_id': m_id },
+		      data: { 'user_id':user_id,
+		    	  	'board_num':board_num,
+		    	  	'recommend_check':check
+		      },
 		      success: function (data) {
-		          if (data == 1) {
+		          if (data == '1') {
 		              $("#likeimg").attr("src", "/resources/img/like.png");
 		              location.reload();
 		          } else {
 		              $("#likeimg").attr("src", "/resources/img/before_like.png");
 		              location.reload();
 		          }
-		      }, error: function () {
-		          $("#likeimg").attr("src", "/resources/img/like.png");
 		      }
-
 		  });
 
 		  });
