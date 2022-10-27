@@ -88,10 +88,6 @@ public class BoardController {
             response.addCookie(newCookie);
         }
     	
-    	
-    	
-    	
-    	
     	mo.addAttribute("list", boardService.getDetaile(board_num));
     	mo.addAttribute("reply_list", rs.getList(board_num));
     	mo.addAttribute("count", boardService.recommendCount(board_num));
@@ -212,7 +208,7 @@ public class BoardController {
 			
 			File thumbnailFile = new File(uploadPath, "s_" + uploadFileName);
 			BufferedImage bo_image = ImageIO.read(saveFile);
-
+			
 			// 이미지 비율
 			double ratio = 3;
 

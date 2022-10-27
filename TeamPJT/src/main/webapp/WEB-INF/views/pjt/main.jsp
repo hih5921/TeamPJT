@@ -9,13 +9,21 @@
 	<!-- Heading Row-->
 	<div class="row gx-4 gx-lg-5 align-items-center my-5">
 		<div class="col-lg-7">
-			<img class="img-fluid rounded mb-4 mb-lg-0"
-				src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." />
+		<c:choose>
+			<c:when test="${!empty img0.img_uploadPath}">
+				<img class="img-fluid rounded mb-4 mb-lg-0"
+				src="/img/${img0.img_uploadPath}/${img0.img_uuid}_${img0.img_fileName}" alt="..." />
+			</c:when>
+			<c:otherwise>
+				<img class="img-fluid rounded mb-4 mb-lg-0"
+				src="/resources/img/noimg.png" alt="..." />
+			</c:otherwise>
+		</c:choose>
 		</div>
 		<div class="col-lg-5">
 			<h1 class="font-weight-light">전체 게시물 조회수 top</h1>
-			<p>조회수 top 게시물 본문 내용</p>
-			<a class="btn btn-primary" href="#!">더보기</a>
+			<p>${ls[0].board_title} ${img0.img_uploadPath}ww</p>
+			<a class="btn btn-primary" href="/board/detaile?board_num=${ls[0].board_num }">더보기</a>
 		</div>
 	</div>
 	<!-- Call to Action-->
@@ -29,10 +37,18 @@
 	<div class="row gx-4 gx-lg-5">
 		<div class="col-md-4 mb-5">
 			<div class="card" style="width: 18rem;">
-				<img src="/resources/img/image-5.png" class="card-img-top" alt="...">
+			<c:choose>
+				<c:when test="${!empty img1.img_uploadPath}">
+					<img src="/img/${img1.img_uploadPath}/${img1.img_uuid}_${img1.img_fileName}" class="card-img-top" alt="...">
+				</c:when>
+				<c:otherwise>
+					<img src="/resources/img/noimg.png" class="card-img-top" alt="...">
+				</c:otherwise>
+			</c:choose>
+				
 				<div class="card-body">
 					<h5 class="card-title">제목</h5>
-					<p class="card-text">간단한 내용</p>
+					
 					<a href="#" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
@@ -40,10 +56,17 @@
 
 		<div class="col-md-4 mb-5">
 			<div class="card" style="width: 18rem;">
-				<img src="/resources/img/image-5.png" class="card-img-top" alt="...">
+				<c:choose>
+				<c:when test="${!empty img2.img_uploadPath}">
+					<img src="/img/${img2.img_uploadPath}/${img2.img_uuid}_${img2.img_fileName}" class="card-img-top" alt="...">
+				</c:when>
+				<c:otherwise>
+					<img src="/resources/img/noimg.png" class="card-img-top" alt="...">
+				</c:otherwise>
+			</c:choose>
 				<div class="card-body">
 					<h5 class="card-title">제목</h5>
-					<p class="card-text">간단한 내용</p>
+					
 					<a href="#" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
@@ -52,10 +75,17 @@
 
 		<div class="col-md-4 mb-5">
 			<div class="card" style="width: 18rem;">
-				<img src="/resources/img/image-5.png" class="card-img-top" alt="...">
+				<c:choose>
+				<c:when test="${!empty img3.img_uploadPath}">
+					<img src="/img/${img3.img_uploadPath}/${img3.img_uuid}_${img3.img_fileName}" class="card-img-top" alt="...">
+				</c:when>
+				<c:otherwise>
+					<img src="/resources/img/noimg.png" class="card-img-top" alt="...">
+				</c:otherwise>
+			</c:choose>
 				<div class="card-body">
 					<h5 class="card-title">제목</h5>
-					<p class="card-text">간단한 내용</p>
+					
 					<a href="#" class="btn btn-primary">더보기</a>
 				</div>
 			</div>

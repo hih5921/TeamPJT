@@ -58,10 +58,20 @@
 		#{img_uploadPath}, #{img_uuid})
 	</insert>
 
-	<select id="top4" resultType="com.pjt.command.BoardVO">
-
+	<select id="top4_img" resultType="com.pjt.command.ImgVO">	
+		select DISTINCT i.board_num, i.img_filename,i.img_uploadpath,i.img_uuid from tbl_img i,
+		(select DISTINCT * from (select * from tbl_board order by board_view desc) where ROWNUM &lt;=4)
 	</select>
-
+	
+	<select id="top4" resultType="com.pjt.command.BoardVO">	
+		select DISTINCT * from (select * from tbl_board order by board_view desc) where rownum&lt;=4
+	</select>
+	
+	<select id="getImg" resultType="com.pjt.command.ImgVO">
+		select * from tbl_img where board_num = #{board_num}
+	</select>
+	
+	
 	<update id="recommend_Merge">
 		merge into tbl_recommend
 		using dual on(user_id = #{user_id} and

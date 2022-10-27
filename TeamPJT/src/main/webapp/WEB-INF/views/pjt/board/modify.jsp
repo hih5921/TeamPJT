@@ -29,7 +29,6 @@
 		<div class="container py-4">
 
 			<!-- p, mb 클래는 마진 관련, bg - 백그라운드, 라운더 - 보더 -->
-			<label class="input-file-button" for="input-file">이미지 첨부<input type="file" id="input-file" style="display:none"/></label>
 			<div class="editor-menu">
 				<button type="button" id="btn-bold">
 					<b>B</b>
@@ -83,7 +82,7 @@
 
 	
 <script type="text/javascript">
-<script type="text/javascript">
+
 
 // 에디터 버튼     
 const editor = document.getElementById('editor');
@@ -153,6 +152,6 @@ function check() {
 
 </script>
 
-</script>
+
 </body>
 </html>

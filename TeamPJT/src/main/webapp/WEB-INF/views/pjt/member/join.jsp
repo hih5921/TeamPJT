@@ -58,37 +58,37 @@
 	
 	<script type ="text/javascript">
 	
-	function idCheck(){
-		
-		var id = $("#id").val(); 
-		var user_id ={"user_id":id};  //json
-		
-		
-		$.ajax({
-				type : "post", 		// 요청형식
-				url : "checkId",	// 요청할 주소
-				data : user_id,		// 서버에 전송할 테이터 json형식 {key:value}
-				dataType : "text",
-				// datatype : "json", // 서버에서 요청후 리턴해 주는 타입
-				error : function(request, error) {
-					alert(error + "\n" + request.status)
-				},
-				success : function(result){
-					// ajax통신에 성공했을 때, 호출될 자바스크립트 함수, 결과 여부가
-					// result 매개변수로 전달됨.
-					console.log("성공(1) 실패(0) 여부 : " + result);
-					
-					if(result == "<Integer>1</Integer>") {	// 중복된 아이디가 존재함
-						alert("중복된 아이디가 있습니다.");  						
-					} else {
-						alert("사용가능한 아이디 입니다.");
-						$("#id").attr("readonly", true);
-					}
-				}
-				
-		});
-		console.log(user_id);
-	}
+	 function idCheck(){
+	      
+	      var id = $("#id").val(); 
+	      var user_id ={"user_id":id};  //json
+	      
+	      
+	      $.ajax({
+	            type : "post",       // 요청형식
+	            url : "checkId",   // 요청할 주소
+	            data : user_id,      // 서버에 전송할 테이터 json형식 {key:value}
+	            dataType : "text",
+	            // datatype : "json", // 서버에서 요청후 리턴해 주는 타입
+	            error : function(request, error) {
+	               alert(error + "\n" + request.status)
+	            },
+	            success : function(result){
+	               // ajax통신에 성공했을 때, 호출될 자바스크립트 함수, 결과 여부가
+	               // result 매개변수로 전달됨.
+	               console.log("성공(1) 실패(0) 여부 : " + result);
+	               
+	               if(result == "<Integer>1</Integer>") {   // 중복된 아이디가 존재함
+	                  alert("중복된 아이디가 있습니다.");                    
+	               }else if($("#id").val().length <4){
+	                  alert("아이디는 네 글자 이상입니다.");
+	               }else {
+	                  alert("사용가능한 아이디 입니다.");
+	                  $("#id").attr("readonly", true);
+	               }
+	            }
+	            
+	      });
 	
 	function joinCheck(){
 				
