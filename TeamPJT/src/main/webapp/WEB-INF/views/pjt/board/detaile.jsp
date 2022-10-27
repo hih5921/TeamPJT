@@ -67,8 +67,17 @@
 
 			<br>
 			<div align="center">
-						<button type="button" class="btn btn-secondary" onclick="location.href='modify?board_num=${param.board_num}'">수정</button>
-						<button type="button" class="btn btn-secondary" onclick="location.href='delete'">삭제</button>
+						<c:choose>
+							<c:when test="${sessionScope.id eq list.user_id }">
+								<button type="button" class="btn btn-secondary" onclick="location.href='modify?board_num=${param.board_num}'">수정</button>
+								<button type="button" class="btn btn-secondary" onclick="location.href='delete?board_num=${param.board_num}'">삭제</button>			
+							</c:when> 
+							<c:otherwise>
+								<button type="button" class="btn btn-secondary" onclick="location.href='modify?board_num=${param.board_num}'" disabled>수정</button>
+								<button type="button" class="btn btn-secondary" onclick="location.href='delete?board_num=${param.board_num}'" disabled>삭제</button>			
+							</c:otherwise>
+						</c:choose>
+						
 			</div>
 			<div class="my-3 p-3 bg-body rounded shadow-sm">
 				<h6 class="border-bottom pb-2 mb-0">댓글</h6>
@@ -84,8 +93,11 @@
 
 						<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 							<div class="d-flex justify-content-between">
-								<strong class="text-gray-dark"> ${reply.user_id} </strong> <a
-									href="addReply()" class="small">삭제</a>
+							
+								<strong class="text-gray-dark"> ${reply.user_id} </strong> 
+								<c:if test="${sessionScope.id == reply.user_id}">
+								<a href="/replies/delReply?reply_num=${reply.reply_num }&board_num=${reply.board_num}" class="small">삭제</a>
+								</c:if>
 							</div>
 							<span class="d-block">${reply.reply_coment}</span>
 						</div>
@@ -106,9 +118,19 @@
 						<input class="form-control input-sm" id="user_id" type="text" value="${sessionScope.id}" readonly >
 					</div>
 					<div class="form-group col-sm-2">
-						<button type="button" class="btn btn-s btn-secondary btn-block replyAddBtn" onclick="addReply()">
-							<i class="fa fa-save"></i> 저장
-						</button>
+						<c:choose>
+							<c:when test="${!empty sessionScope.id}">
+								<button type="button" class="btn btn-s btn-secondary btn-block replyAddBtn" onclick="addReply()">
+									<i class="fa fa-save"></i> 저장
+								</button>
+							</c:when>
+							<c:otherwise>
+								<button type="button" class="btn btn-s btn-secondary btn-block replyAddBtn" onclick="addReply()" disabled>
+									<i class="fa fa-save"></i> 저장
+								</button>
+							</c:otherwise>
+						</c:choose>
+							
 					</div>
 				</div>
 			</form>
@@ -125,8 +147,13 @@
 			var user_id = $('#user_id').val()
 			var reply_coment = $('#reply_coment').val()
 			var board_num = ${param.board_num}
+			if(user_id!=null){
+			
 			location.href = "/replies/addReply?board_num=" + board_num
 					+ "&user_id=" + user_id + "&reply_coment=" + reply_coment
+			}else {
+				alert("댓글작성은 로그인 후 사용가능합니다.")
+			}
 
 		}
 		

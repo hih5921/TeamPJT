@@ -263,5 +263,14 @@ public class BoardController {
 		return result;  
 	}
 	
+	@RequestMapping("/delete")
+	public String delete(int board_num) {
+//		String id = (String)session.getAttribute("id");
+//		if(id.equals(boardService.getDetaile(board_num).getUser_id())) {
+//			boardService.delete(board_num);
+//		}
+		boardService.delete(board_num);
+		return "redirect:/board/list";
+	}
 }
 

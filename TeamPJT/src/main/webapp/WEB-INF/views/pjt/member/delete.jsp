@@ -7,7 +7,7 @@
 <body>
 	<section>
 		<div align="center">
-			<form name="regform" id="regform" action="delete_form" method="post">
+			<form id="regform" action="delete_form" method="post">
 				<br><br><br>
 				<h2>My Page</h2><br>
 				<table>

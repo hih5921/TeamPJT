@@ -30,4 +30,5 @@ public interface BoardMapper {
 	public int recommendCount(int board_num);
 	public void boardViewCount(int board_num);
 	public ImgVO getImg(int board_num);
+	public void delete(int board_num);
 }
