@@ -23,9 +23,11 @@ public interface BoardMapper {
 	public ArrayList<BoardVO> pagingList(Criteria cri);
 	public void imageEnroll(ImgVO vo);
 	public List<BoardVO> top4();
+	public List<ImgVO> top4_img();
 	public int searchCount(String Board_title);
 	public void recommend_Merge(RecommendVO vo); 
 	public String getRecommend(RecommendVO vo);
 	public int recommendCount(int board_num);
-
+	public void boardViewCount(int board_num);
+	public ImgVO getImg(int board_num);
 }

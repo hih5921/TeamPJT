@@ -67,8 +67,14 @@ public class BoardServiceImpl implements BoardService{
 	
 	@Override
 	public List<BoardVO> top4() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return bmp.top4();
+	}
+	
+	@Override
+	public List<ImgVO> top4_img() {
+		
+		return bmp.top4_img();
 	}
 	
 	@Override
@@ -93,6 +99,18 @@ public class BoardServiceImpl implements BoardService{
 	public int recommendCount(int board_num) {
 		// TODO Auto-generated method stub
 		return bmp.recommendCount(board_num);
+	}
+	
+	@Override
+	public void boardViewCount(int board_num) {
+		bmp.boardViewCount(board_num);
+		
+	}
+	
+	@Override
+	public ImgVO getImg(int board_num) {
+		
+		return bmp.getImg(board_num);
 	}
 	
 }

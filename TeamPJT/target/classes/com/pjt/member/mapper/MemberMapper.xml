@@ -25,12 +25,12 @@
 	</select>
 
 	<update id="update" parameterType="com.pjt.member.commend.MemberVO">
-		update tbl_user set user_phone=#{user_phone}, user_address=#{user_address}, user_email=#{user_email}, user_nickname=#{user_nick}
+		update tbl_user set user_phone=#{user_phone}, user_address=#{user_address}, user_email=#{user_email}, user_nickname=#{user_nickname}
 		where user_id=#{user_id}
 	</update>
 	
 	<update id="updatePW">
-		update tbl_user set user_pw=#{newpw} where user_id=#{id}
+		update tbl_user set user_pw=#{user_pw} where user_id=#{user_id}
 	</update>
 	
 	<delete id="delete">
