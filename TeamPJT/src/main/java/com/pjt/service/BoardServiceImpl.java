@@ -113,4 +113,10 @@ public class BoardServiceImpl implements BoardService{
 		return bmp.getImg(board_num);
 	}
 	
+	@Override
+	public void delete(int board_num) {
+		bmp.delete(board_num);
+		
+	}
+	
 }

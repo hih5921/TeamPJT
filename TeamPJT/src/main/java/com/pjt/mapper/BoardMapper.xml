@@ -110,6 +110,10 @@
 		SET board_view = board_view + 1
 		WHERE board_num = #{board_num}
 	</update>
+	
+	<delete id="delete">
+		delete from tbl_board where board_num=#{board_num}
+	</delete>
 
 </mapper>
 

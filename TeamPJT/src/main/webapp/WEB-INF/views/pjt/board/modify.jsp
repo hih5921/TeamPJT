@@ -67,7 +67,7 @@
 			<br>
 			
 		<div align="center">
-			<button type="submit" class="btn btn-secondary">등록</button>
+			<button type="button" class="btn btn-secondary" onclick="check()">등록</button>
 			<button type="button" class="btn btn-secondary" onclick="location.href='list'">취소</button>
 		</div>
 			
