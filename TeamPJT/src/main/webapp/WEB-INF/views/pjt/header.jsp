@@ -12,13 +12,7 @@
 	*{font-family: 'Black Han Sans', sans-serif; font-family: 'Hahmlet', serif;}
 </style>
 <style type="text/css">
-.row {
-	margin: 0px auto;
-	width: 100%;
-	text-align : center;
-	
-	
-}
+
 
 h1 {
 	text-align: center;
@@ -71,10 +65,12 @@ h1 {
 	    cursor: pointer;	
 	}
   
-  
+  body {
+  padding-top: 75px;
+  }
 </style>
     </head>
-    <body class="d-flex flex-column min-vh-100">
+    <body class="d-flex flex-column min-vh-100 pt-5" >
     
 	<!-- jQuery -->
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -85,7 +81,7 @@ h1 {
 			}
     	</script>
         <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar fixed-top">
             <div class="container px-5">
                 <a class="navbar-brand" href="/pjt/main">Team PJT</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -94,7 +90,7 @@ h1 {
                     	<li class="nav-item"><input type="text" name="title" id="title" style="padding-left: 10px; padding-top: 10px"  ></li>
                     	<li class="nav-item"><button type="button" class="btn btn-secondary" onclick="search()">검색</button></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="/pjt/main">메인</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/board/list">추천 리뷰</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/board/list">게시판</a></li>
                         <c:choose >
                         	<c:when test="${empty id}">                      
                         		<li class="nav-item"><a class="nav-link" href="/member/login">로그인</a></li>

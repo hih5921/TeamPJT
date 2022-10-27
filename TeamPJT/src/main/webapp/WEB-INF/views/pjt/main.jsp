@@ -22,7 +22,7 @@
 		</div>
 		<div class="col-lg-5">
 			<h1 class="font-weight-light">전체 게시물 조회수 top</h1>
-			<p>${ls[0].board_title} ${img0.img_uploadPath}ww</p>
+			<p>${ls[0].board_title}</p>
 			<a class="btn btn-primary" href="/board/detaile?board_num=${ls[0].board_num }">더보기</a>
 		</div>
 	</div>
@@ -47,9 +47,9 @@
 			</c:choose>
 				
 				<div class="card-body">
-					<h5 class="card-title">제목</h5>
+					<h5 class="card-title">${ls[1].board_title}</h5>
 					
-					<a href="#" class="btn btn-primary">더보기</a>
+					<a href="/board/detaile?board_num=${ls[1].board_num }" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
 		</div>
@@ -65,13 +65,12 @@
 				</c:otherwise>
 			</c:choose>
 				<div class="card-body">
-					<h5 class="card-title">제목</h5>
+					<h5 class="card-title">${ls[2].board_title}</h5>
 					
-					<a href="#" class="btn btn-primary">더보기</a>
+					<a href="/board/detaile?board_num=${ls[2].board_num }" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
 		</div>
-
 
 		<div class="col-md-4 mb-5">
 			<div class="card" style="width: 18rem;">
@@ -84,9 +83,8 @@
 				</c:otherwise>
 			</c:choose>
 				<div class="card-body">
-					<h5 class="card-title">제목</h5>
-					
-					<a href="#" class="btn btn-primary">더보기</a>
+					<h5 class="card-title">${ls[3].board_title}</h5>
+					<a href="/board/detaile?board_num=${ls[3].board_num }" class="btn btn-primary">더보기</a>
 				</div>
 			</div>
 		</div>

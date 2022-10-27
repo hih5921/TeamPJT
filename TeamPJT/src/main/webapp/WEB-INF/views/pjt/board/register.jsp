@@ -75,8 +75,8 @@
 
 		</div>
 	</form>
-	<%@include file="../footer.jsp"%>
 </main>
+<%@include file="../footer.jsp"%>
 
 
 <!-- jQuery -->

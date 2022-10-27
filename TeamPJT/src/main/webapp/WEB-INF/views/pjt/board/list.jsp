@@ -14,7 +14,7 @@
 			<h1>전체 게시판</h1>
 		
 				<div align="right">	
-				 <button type="button" class="btn btn-primary btn-sm float-right" onclick="location.href='/board/register'" >글쓰기</button>
+				 <button type="button" class="btn btn-secondary btn-sm float-right" onclick="location.href='/board/register'" >글쓰기</button>
 				 <br><br>
 				 </div>
 				

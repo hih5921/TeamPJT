@@ -13,7 +13,7 @@
 			style="background-color: graytext; color: white; border-collapse:collapse;">
 			<div class="row" style="height: 40px;">
 				<input type="text" class="col-9 bg-light" style="border: 2px solid #888;" value="제목 : ${list.board_title}" readonly /> 
-								<input type="text" class="col-3 bg-light" style="border: 2px solid #888; color: gold;" 
+				<input type="text" class="col-3 bg-light" style="border: 2px solid #888; color: gold;" 
 				value="<c:forEach var="a" begin="1" end="${list.board_score }">★</c:forEach>"name="board_score" readonly/>
 			</div>
 			<div class="row">
@@ -135,9 +135,9 @@
 				</div>
 			</form>
 		</div>
-		<%@include file="../footer.jsp"%>
 	</main>
-
+	
+	<%@include file="../footer.jsp"%>
 
 
 	

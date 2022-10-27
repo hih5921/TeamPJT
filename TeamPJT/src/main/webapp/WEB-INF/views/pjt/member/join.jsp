@@ -89,7 +89,7 @@
 	            }
 	            
 	      });
-	
+	 }
 	function joinCheck(){
 				
 		if(!$("#id").attr("readonly")){

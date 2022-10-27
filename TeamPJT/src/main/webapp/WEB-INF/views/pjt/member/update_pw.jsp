@@ -43,7 +43,7 @@
 	 }else if(confirm("변경 하시겠습니까?")){
 			document.regform.submit();
 		}
- }
+}
 
 
 </script>
